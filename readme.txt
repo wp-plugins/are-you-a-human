@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Are You A Human ===
 Contributors: areyouahuman
 Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, captcha, verification, security, bots, spambots
 Donate Link: http://portal.areyouahuman.com
