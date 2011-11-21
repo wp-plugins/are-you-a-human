@@ -1,10 +1,10 @@
-=== Plugin Name ===
+=== Are You A Human ===
 Contributors: areyouahuman
 Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, captcha, verification, security, bots, spambots
 Donate Link: http://portal.areyouahuman.com
 Requires at least: 3.2.1
 Tested up to: 3.2
-Stable tag: 0.1
+Stable tag: 0.2
 
 CAPTCHA's suck.  At Are You a Human, we are making games to fight bots with fun. Please try out our beta!
 
@@ -58,7 +58,13 @@ Adobe Flash Player (11 or Higher) Version
 = 0.1 =
 * Initial Beta release.
 
+= 0.2 =
+* Fixed bug that caused the "permissions" error when saving your settings
+
 == Upgrade Notice ==
 
 = 0.1 =
 * Initial Beta release.
+
+= 0.2 =
+* Fixes a bug that causes a "permissions" error when saving your settings

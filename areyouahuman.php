@@ -167,7 +167,7 @@ function ayah_plugin_action_links( $links, $file ) {
 	if ( ! $this_plugin ) $this_plugin = plugin_basename(__FILE__);
 
 	if ( $file == $this_plugin ){
-		 $settings_link = '<a href="options-general.php?page=areyouahuman/areyouahuman.php">' . __('Settings', 'captcha') . '</a>';
+		 $settings_link = '<a href="options-general.php?page=are-you-a-human/areyouahuman.php">' . __('Settings', 'captcha') . '</a>';
 		 array_unshift( $links, $settings_link );
 	}
 	return $links;
@@ -176,7 +176,7 @@ function ayah_plugin_action_links( $links, $file ) {
 function ayah_register_plugin_links($links, $file) {
 	$base = plugin_basename(__FILE__);
 	if ($file == $base) {
-		$links[] = '<a href="options-general.php?page=areyouahuman/areyouahuman.php">' . __('Settings','captcha') . '</a>';
+		$links[] = '<a href="options-general.php?page=are-you-a-human/areyouahuman.php">' . __('Settings','captcha') . '</a>';
 		$links[] = '<a href="http://support.areyouahuman.com" target="_blank">' . __('FAQ','captcha') . '</a>';
 		$links[] = '<a href="Mailto:humans@areyouahuman.com">' . __('Support','captcha') . '</a>';
 	}
@@ -274,7 +274,7 @@ function ayah_settings_page() {
 	<h2>Captcha Options</h2>
 	<div class="updated fade" <?php if( ! isset( $_REQUEST['ayah_form_submit'] ) || $error != "" ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
 	<div class="error" <?php if( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
-	<form method="post" action="options-general.php?page=areyouahuman/areyouahuman.php">
+	<form method="post" action="options-general.php?page=are-you-a-human/areyouahuman.php">
 		<table class="form-table">
 			<tr valign="top">
 				<th scope="row">Enable Are You A Human? on: </th>
