@@ -1,4 +1,4 @@
-=== are you a human ===
+=== Are You a Human - Free CAPTCHA Alternative ===
 Contributors: areyouahuman
 Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, captcha, verification, security, bots, spambots
 Donate Link: http://portal.areyouahuman.com
@@ -6,46 +6,35 @@ Requires at least: 3.2.1
 Tested up to: 3.2
 Stable tag: 0.2
 
-CAPTCHA's suck.  At Are You a Human, we are making games to fight bots with fun. Please try out our beta!
+CAPTCHA's suck.  Are You a Human’s PlayThru is a CAPTCHA alternative that replaces the twisted, distorted text with games.
 
 == Description ==
 
-This is the Beta release of the Are You A Human WordPress plugin. We are actively developing both the plugin and the PlayThru itself.
+PlayThru replaces the awful user experience of normal CAPTCHAs with short and simple games.  They are easy for your users and difficult for bots to break.
 
-It might not work everywhere, all the time, but we think it is good enough to start letting people test-drive it.
+Are You a Human’s PlayThru provides security for your site’s comments and registration sections.  It is easy to install and difficult for spammers to circumvent.  We collect lots of data about how a visitor plays our game, which we feed into our algorithm to continuously improve our security.  Please learn more about PlayThru at the [Are You a Human website](http://areyouahuman.com).
 
-Our PlayThru solves the two main problems with CAPTCHAs: terrible user experience and lousy security.
+Installing PlayThru requires a Publisher Key, which can be acquired from the Are You a Human publisher portal.  To get your publisher key, please create an account on our [registration page](http://areyouahuman.com/signup).  
 
-Our PlayThru is more simple, intuitive, and fun for people because it uses games that are easy to figure out for humans, but difficult for bots.  We collect lots of data about how a visitor plays our game, which we feed into our algorithm to continuously improve our security. The combination of interaction plus multiple games makes PlayThru a superior verification solution.
+We love feedback and would like to hear from you.  Please leave us some on our [support forum](http://support.areyouahuman.com/).  We also like to get some shout outs on our [Facebook page](http://www.facebook.com/areyouahuman).
 
-We love feedback, so please tell us how to make PlayThru better at [http://support.areyouahuman.com]("http://support.areyouahuman.com").
-
-Thanks and fight bots with fun.
+Thank you and fight bots with fun!
 
 == Installation ==
 
 1. Upload `areyouahuman/` to the `/wp-content/plugins/` directory
-1. Register for an account at [http://portal.areyouahuman.com]("http://portal.areyouahuman.com")
-1. Register your site under the Domains tab to get your API keys
-1. Insert your API keys in the admin panel under settings > areyouahuman
+1. Register for an account at [http://portal.areyouahuman.com](http://portal.areyouahuman.com)
+1. Register your site under the Domains tab to get your Publisher and Scoring keys
+1. Insert your API keys in the Wordpress admin panel under settings > areyouahuman
+1. Fight spam with fun!
 
 == Frequently Asked Questions ==
 
 = What browsers do you support? =
 
-HTML5 Canvas Version
+For a full list of frequently asked questions, please see our [FAQ page](http://areyouahuman.com/faqs)
 
-* IE >= 9
-* Chrome >= 12.0
-* Firefox >= 5.0
-* Safari >= 4.0
-
-Adobe Flash Player (11 or Higher) Version
-
-* IE >= 7
-* Chrome >= 12.0
-* Firefox >= 5.0
-* Safari >= 3.2
+If you have other questions, please let us know!  We love feedback, and it can be left at our [support forum](http://support.areyouahuman.com).
 
 == Screenshots ==
 
