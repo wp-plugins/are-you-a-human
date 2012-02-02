@@ -4,7 +4,7 @@ Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, cap
 Donate Link: http://portal.areyouahuman.com
 Requires at least: 3.2.1
 Tested up to: 3.2
-Stable tag: 0.2
+Stable tag: 0.3.1
 
 CAPTCHA's suck.  Are You a Human’s PlayThru is a CAPTCHA alternative that replaces the twisted, distorted text with games.
 
