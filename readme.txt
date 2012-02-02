@@ -2,9 +2,9 @@
 Contributors: areyouahuman
 Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, captcha, verification, security, bots, spambots
 Donate Link: http://portal.areyouahuman.com
-Requires at least: 3.2.1
+Requires at least: 3.2
 Tested up to: 3.2
-Stable tag: 0.3.1
+Stable tag: 0.3.2
 
 CAPTCHA's suck.  Are You a Human’s PlayThru is a CAPTCHA alternative that replaces the twisted, distorted text with games.
 
@@ -57,3 +57,9 @@ If you have other questions, please let us know!  We love feedback, and it can b
 
 = 0.2 =
 * Fixes a bug that causes a "permissions" error when saving your settings
+
+= 0.3 =
+* Fixes misspelling in domain
+
+= 0.3.2 =
+* Fixed versioning
