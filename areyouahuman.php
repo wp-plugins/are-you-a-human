@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Are You A Human
- * @version 0.2
+ * @version 0.3.1
  */
 /*
 Plugin Name: Are You A Human?
 Plugin URI:  http://www.areyouahuman.com/
 Description: Plugin Captcha intended to prove that the visitor is a human being and not a spam robot. Plugin asks the visitor to play a short game.
 Author: Are You A Human
-Version: 0.2
+Version: 0.3.1
 Author http://www.areyouahuman.com/
 */
 
