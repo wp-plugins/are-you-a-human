@@ -50,7 +50,7 @@ function register_ayah_settings() {
 		'ayah_comments_form' => '1',
 		'ayah_hide_register' => '0',
 //		'ayah_label_form' => '',
-		'ayah_webservice_host' => 'ws1.areyouhuman.com',
+		'ayah_webservice_host' => 'ws1.areyouahuman.com',
 		'ayah_publisher_key' => '',
 		'ayah_scoring_key' => '',
   	);
