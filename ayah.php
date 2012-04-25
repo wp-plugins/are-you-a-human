@@ -135,7 +135,8 @@ class AYAH {
 		if ($use_timeout) {
 			curl_setopt($curlsession,CURLOPT_TIMEOUT, $this->timeout);
 		}
-		$result = curl_exec($curlsession);		if ($result) {
+		$result = curl_exec($curlsession);
+		if ($result) {
 			try {
 				$m = json_decode( $result);
 			} catch (Exception $e) { 
