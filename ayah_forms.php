@@ -36,6 +36,8 @@ function ayah_comment_post() {
 		return $comment;
 	}
 	
+	$ayah = ayah_load_library();
+	
 	//Score the game
 	if ( $ayah->scoreResult() ) {	
 		return($comment); // captcha was matched
