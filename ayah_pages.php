@@ -32,9 +32,7 @@ function ayah_get_settings_page() {
     }
         
     echo ayah_get_form($page_opts['button']);
-    
-    echo ayah_clear_options_button();
-    
+        
     echo "</div>";
     
 }
