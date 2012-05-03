@@ -35,19 +35,19 @@ Thank you and fight bots with fun!
 
 = Install the Plugin =
 
-1.Log in to your Wordpress blog as the administrator
-1.Navigate to Plugins -> Add New
-1.Enter "Are You a Human" in the search box
-1.Click "Install Now"
-1.Once installation has completed, click the "Activate Plugin" link
+1. Log in to your Wordpress blog as the administrator
+1. Navigate to Plugins -> Add New
+1. Enter "Are You a Human" in the search box
+1. Click "Install Now"
+1. Once installation has completed, click the "Activate Plugin" link
 
 = Configure the Plugin =
 
-1.Navigate to Settings -> Are You a Human
-1.If you have not already registered for an account, click the registration button and follow the instructions.
-1.After you've registered for an account you will be assigned a Publisher and Scoring Key. Copy and paste those keys into the Are You a Human settings in your Wordpress admin.
-1.Select which forms you would like PlayThru to be active on and when you're done, click the Save Changes button.
-1.You're ready to fight bots with fun!
+1. Navigate to Settings -> Are You a Human
+1. If you have not already registered for an account, click the registration button and follow the instructions.
+1. After you've registered for an account you will be assigned a Publisher and Scoring Key. Copy and paste those keys into the Are You a Human settings in your Wordpress admin.
+1. Select which forms you would like PlayThru to be active on and when you're done, click the Save Changes button.
+1. You're ready to fight bots with fun!
 
 == Frequently Asked Questions ==
 
@@ -67,25 +67,34 @@ If you have other questions, please let us know!  We love feedback, and it can b
 
 == Changelog ==
 
-= 0.1 =
-* Initial Beta release.
-
-= 0.2 =
-* Fixed bug that caused the "permissions" error when saving your settings
-
-== Upgrade Notice ==
-
-= 0.1 =
-* Initial Beta release.
-
-= 0.2 =
-* Fixes a bug that causes a "permissions" error when saving your settings
-
-= 0.3 =
-* Fixes misspelling in domain
+= 1.0.0 =
+* Major code refactor
 
 = 0.3.2 =
 * Fixed versioning
 
+= 0.3 =
+* Fixes misspelling in domain
+
+= 0.2 =
+* Fixed bug that caused the "permissions" error when saving your settings
+
+= 0.1 =
+* Initial Beta release.
+
+== Upgrade Notice ==
+
 = 1.0.0 =
-* Major code refactor
+Signup process and admin page simplified and made cleaner.
+
+= 0.3.2 =
+* Fixed versioning
+
+= 0.3 =
+* Fixes misspelling in domain
+
+= 0.2 =
+* Fixes a bug that causes a "permissions" error when saving your settings
+
+= 0.1 =
+* Initial Beta release.
