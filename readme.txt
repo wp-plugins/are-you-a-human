@@ -12,7 +12,8 @@ PlayThru, created by Are You a Human, replaces the awful user experience of norm
 
 == Description ==
 
-PlayThru [pley throo] noun 
+PlayThru [pley throo] noun
+
 1. The next evolution of online human verification and the best CAPTCHA replacement around.
 1. A CAPTCHA alternative that stops bots with fun, by focusing on being simple and intuitive.
 
@@ -35,18 +36,18 @@ Thank you and fight bots with fun!
 = Install the Plugin =
 
 1.Log in to your Wordpress blog as the administrator
-1.Navigate to Plugins → Add New
-1.Enter “Are You a Human” in the search box
-1.Click “Install Now”
-1.Once installation has completed, click the “Activate Plugin” link
+1.Navigate to Plugins -> Add New
+1.Enter "Are You a Human" in the search box
+1.Click "Install Now"
+1.Once installation has completed, click the "Activate Plugin" link
 
 = Configure the Plugin =
 
-1.Navigate to Settings → Are You a Human
+1.Navigate to Settings -> Are You a Human
 1.If you have not already registered for an account, click the registration button and follow the instructions.
-1.After you’ve registered for an account you will be assigned a Publisher and Scoring Key. Copy and paste those keys into the Are You a Human settings in your Wordpress admin.
-1.Select which forms you would like PlayThru to be active on and when you’re done, click the Save Changes button.
-1.You’re ready to fight bots with fun!
+1.After you've registered for an account you will be assigned a Publisher and Scoring Key. Copy and paste those keys into the Are You a Human settings in your Wordpress admin.
+1.Select which forms you would like PlayThru to be active on and when you're done, click the Save Changes button.
+1.You're ready to fight bots with fun!
 
 == Frequently Asked Questions ==
 
