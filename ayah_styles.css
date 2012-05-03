@@ -1,0 +1,7 @@
+#playthru-options fieldset {padding: 10px 0;}
+#playthru-options label {color:#236DB6; display: block; font-size: 120%; font-weight: bold;}
+#playthru-options input[type="checkbox"] {margin: 0 5px 0 0;}
+#playthru-options input[type="text"] {margin: 8px 0 0 0; padding: 8px; width: 300px;}
+
+.alert {border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; font-weight: bold; margin: 10px 0 10px 0; padding: 10px; width: 280px;}
+.alert.valid {background: #D6E5CF; border: 1px solid #679652; color: #517540;}
