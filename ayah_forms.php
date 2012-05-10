@@ -12,10 +12,10 @@ function ayah_comment_form() {
     
     echo $ayah->getPublisherHTML();
     
-    return true;
+    return TRUE;
 }
 
-function ayah_comment_post() {
+function ayah_comment_post($comment) {
     ayah_get_options();
       
     //skip if hidden for logged in users
@@ -44,6 +44,46 @@ function ayah_comment_post() {
 	} else {
 		wp_die( __('We could not verify you as human. Press your browser\'s back button and try again.', 'ayah'));
 	}
+}
+
+function ayah_register_form() {
+    ayah_get_options();
+      
+    $ayah = ayah_load_library();
+    
+    echo $ayah->getPublisherHTML();
+    
+    return true;
+}
+
+function ayah_register_post($login, $email, $errors) {
+    ayah_get_options();
+    
+    $ayah = ayah_load_library();
+    
+    if ( $ayah->scoreResult() ) {
+        return;
+    } else {
+        $errors->add('playthru_wrong', '<strong>'.__('ERROR', 'ayah').'</strong>: '.__('Please complete the PlayThru again', 'ayah'));
+    }
+    return $errors;
+}
+
+function ayah_lost_password_form() {
+    //same as the register form
+    ayah_register_form();
+}
+
+function ayah_lost_password_post() {
+    ayah_get_options();
+    
+    $ayah = ayah_load_library();
+    
+    if ( $ayah->scoreResult() ) {
+        return;
+    } else {
+        wp_die(__('Please complete the PlayThru again. Press your browser\'s back button and try again.','ayah'));
+    }
 }
 
 function ayah_load_library() {

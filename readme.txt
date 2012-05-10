@@ -4,7 +4,7 @@ Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, cap
 Donate Link: http://portal.areyouahuman.com
 Requires at least: 2.8
 Tested up to: 3.3.2
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,9 @@ If you have other questions, please let us know!  We love feedback, and it can b
 
 == Changelog ==
 
+= 1.1.0 =
+* Several major bug fixes getting the PlayThru to show for selected forms
+
 = 1.0.1 =
 * Was not initializing library properly
 
@@ -86,6 +89,9 @@ If you have other questions, please let us know!  We love feedback, and it can b
 * Initial Beta release.
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Mandatory upgrade, plugin will show up only on the comment form.
 
 = 1.0.1 =
 Mandatory upgrade, plugin will not score
