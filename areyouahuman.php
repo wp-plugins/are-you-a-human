@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Are You A Human
- * @version 1.0.0
+ * @version 1.1.0
  */
 /*
 Plugin Name: Are You A Human
@@ -9,7 +9,7 @@ Plugin URI:  http://wordpress.org/extend/plugins/are-you-a-human/
 Description: Plugin Captcha intended to prove that the visitor is a human being and not a spam robot. Plugin asks the visitor to play a short game.
 Author: Are You A Human
 Author URI: http://www.areyouahuman.com/
-Version: 1.0.0
+Version: 1.1.0
 */
 
 define('AYAH_VERSION', '1.0.0');
@@ -55,8 +55,18 @@ function ayah_add_playthru() {
     		add_filter( 'preprocess_comment', 'ayah_comment_post' );
     	} else { // for WP <3.0
     		add_action( 'comment_form', 'ayah_comment_form' );
-    		add_filter( 'preprocess_comment', 'ayah_comment_post' );	
+    		add_filter( 'preprocess_comment', 'ayah_comment_post', 10, 3);	
     	}
+    }
+    
+    if( 1 == $ayah_options['enable_register_form']) {
+        add_action( 'register_form', 'ayah_register_form');
+        add_action( 'register_post', 'ayah_register_post', 10, 3);
+    }
+    
+    if( 1 == $ayah_options['enable_lost_password_form']) {
+        add_action( 'lostpassword_form', 'ayah_lost_password_form');
+        add_action( 'lostpassword_post', 'ayah_lost_password_post', 10, 3);
     }
 }
 
