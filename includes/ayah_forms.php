@@ -8,12 +8,6 @@ function ayah_comment_form_after() {
 	if ( is_user_logged_in() and 1 == $_SESSION['ayah_options']['hide_registered_users']) {
 		return TRUE;
 	}
-	/*
-	$ayah = ayah_load_library();
-	
-	$html = $ayah->getPublisherHTML();
-	echo "<div id='ayah-comment-after' style='text-align: center'>" . $html .  "</div>";
-	*/
 	
 	echo "<div id='ayah-comment-after'></div>";
 
@@ -28,17 +22,16 @@ function ayah_comment_form() {
 	if ( is_user_logged_in() and 1 == $_SESSION['ayah_options']['hide_registered_users']) {
 		return TRUE;
 	}
-	
+
 	$ayah = ayah_load_library();
-	
+
 	$html = $ayah->getPublisherHTML();
 	echo "<div id='ayah-comment' style='text-align: center'>" . $html .  "</div>";
-	echo move_submit_button($_SESSION['ayah_options']['submit_id']);
+	echo rearrange_elements($_SESSION['ayah_options']['submit_id']);
 	return TRUE;
 }
 
-// TODO: Rename?
-function move_submit_button($button_id = 'submit') {
+function rearrange_elements($button_id = 'submit') {
 	$script = 	"<script type='text/javascript'>
 					var button = document.getElementById('" . $button_id . "');
 					if (button != null) {
@@ -53,9 +46,12 @@ function move_submit_button($button_id = 'submit') {
 	if (did_action('comment_form_logged_in_after') != 0 || did_action('comment_form_after_fields') != 0) {
 		$script .=		"else { 
 							// If we don't find the submit button move the PlayThru up
-							playThruDiv = document.getElementById('AYAH');
-							playThruDiv.parentNode.removeChild(playThruDiv);
-							document.getElementById('ayah-comment-after').appendChild(playThruDiv);							
+							var afterDiv = document.getElementById('ayah-comment-after');
+							if (afterDiv != null) {
+								var playThruDiv = document.getElementById('AYAH');
+								playThruDiv.parentNode.removeChild(playThruDiv);
+								afterDiv.appendChild(playThruDiv);
+							}								
 						}";
 	}
 	
@@ -63,62 +59,6 @@ function move_submit_button($button_id = 'submit') {
 			  
 	return $script;
 }
-
-/*
-// TODO: Rename?
-function move_submit_button($button_id = 'submit') {
-	$script = 	"<script type='text/javascript'>
-					var button = document.getElementById('" . $button_id . "');
-					if (button != null) {
-						button.parentNode.removeChild(button);
-						document.getElementById('ayah-comment').appendChild(button);
-						
-						var el = document.getElementById('ayah-comment-after');
-						el.parentNode.removeChild(el);
-						
-						setTimeout(function () {
-							var iframes = document.getElementsByTagName('iframe');
-							alert('top iframe');
-							for (var i = 0; i < iframes.length; i++) {
-								alert(iframes[i].src);
-								// Find the frame with the correct source
-								if (iframes[i].src.indexOf('ws.areyouahuman.com') != -1) {
-									iframes[i].parentNode.removeChild(iframes[i]);
-									alert('removed');
-									break;
-								}
-							}
-						}, 1000);
-					
-					}";
-	
-	// If the other playthru hook was called, we may need to remove this playthru
-	if (did_action('comment_form_logged_in_after') != 0 || did_action('comment_form_after_fields') != 0) {
-		$script .=		"else { 
-							// If we don't find the submit button hide the bottom captcha
-							var el = document.getElementById('ayah-comment');
-							el.parentNode.removeChild(el);
-							
-							setTimeout(function () {
-								var iframes = document.getElementsByTagName('iframe');
-								alert('bottom iframe');
-								for (var i = iframes.length - 1; i >= 0; i--) {
-									alert(iframes[i].src);
-									// Find the frame with the correct source
-									if (iframes[i].src.indexOf('ws.areyouahuman.com') != -1) {
-										iframes[i].parentNode.removeChild(iframes[i]);
-										alert('removed');
-										break;
-									}
-								}
-							}, 1000);
-						}";
-	}
-	
-	$script .= "</script>";
-			  
-	return $script;
-}*/
 
 function ayah_comment_post($comment) {
     ayah_get_options();

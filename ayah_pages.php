@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Displays the settings page
+ */
 function ayah_get_settings_page() {
     wp_enqueue_style( 'myPluginStylesheet' );
     
@@ -7,7 +10,8 @@ function ayah_get_settings_page() {
                         'button' => 'Update Settings',
                         'flash_message' => '<h3>These are your current keys, they should not need to be changed once set.</h3>'
                         );
-                        
+                   
+	// Displayed if settings were saved     
     if (isset($_POST['ayah'])) {
         $page_opts['flash_message'] = "Your settings have been saved!";
     }
@@ -21,11 +25,11 @@ function ayah_get_settings_page() {
             break;
     }
     
-    $ayah_options = $_SESSION['ayah_options'];  
+    $ayah_options = $_SESSION['ayah_options']; 	
     
     echo "<div class='wrap'>";
     
-    echo "<h2>Are You a Human ".$page_opts['title']."</h2>";
+    echo "<h2>Are You a Human " . $page_opts['title'] . "</h2>";
     
     if ($page_opts['flash_message']) {
         echo $page_opts['flash_message'];
@@ -34,9 +38,11 @@ function ayah_get_settings_page() {
     echo ayah_get_form($page_opts['button']);
         
     echo "</div>";
-    
 }
 
+/**
+ * Sets the page options for the upgrade page
+ */
 function ayah_get_upgrade_page() {
     
     $page_opts = array();
@@ -52,6 +58,9 @@ function ayah_get_upgrade_page() {
     return $page_opts;
 }
 
+/**
+ * Sets the page options for the install page
+ */
 function ayah_get_install_page() {
 
     $page_opts = array();
@@ -67,6 +76,9 @@ function ayah_get_install_page() {
     return $page_opts;
 }
 
+/**
+ * Returns the settings page HTML with the settings inputs filled in
+ */
 function ayah_get_form($button) {
     
 	$ayah_options = $_SESSION['ayah_options'];
@@ -76,9 +88,8 @@ function ayah_get_form($button) {
 	$chk_enable_lost_password_form = ($ayah_options['enable_lost_password_form'] == '1') ? 'checked' : '';
 	$chk_enable_comment_form = ($ayah_options['enable_comment_form'] == '1') ? 'checked' : '';
 	$chk_hide_registered_users = ($ayah_options['hide_registered_users'] == '1') ? 'checked' : '';
-	
+
     $form_html = "
-    
             <form action=".$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']." method='POST' id='playthru-options'>
                 <fieldset>
                     <label>Enable PlayThru on:</label>
@@ -98,6 +109,10 @@ function ayah_get_form($button) {
                     <label>Scoring Key:</label>
                     <input type='text' name='ayah[scoring_key]' value='".$ayah_options['scoring_key']."'/>
                 </fieldset>
+				<fieldset>
+					<label>Submit Button ID (Advanced):</label>
+					<input type='text' name='ayah[submit_id]' value='".$ayah_options['submit_id']."'/>
+				</fieldset>
                 <fieldset>
 	                <input type='hidden' name='page' value='".$_GET['page']."' />
 	                <input type='hidden' name='ayah[action]' value='".$_SESSION['ayah_page_action']."' />

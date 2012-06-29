@@ -1,0 +1,15 @@
+#playthru-options fieldset {padding: 10px 0;}
+#playthru-options label {color:#236DB6; display: block; font-size: 120%; font-weight: bold;}
+#playthru-options input[type="checkbox"] {margin: 0 5px 0 0;}
+#playthru-options input[type="text"] {margin: 8px 0 0 0; padding: 8px; width: 300px;}
+
+.alert {border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; font-weight: bold; margin: 10px 0 10px 0; padding: 10px; width: 280px;}
+.alert.valid {background: #D6E5CF; border: 1px solid #679652; color: #517540;}
+
+.ayah-col-left {width: 65%; float: left;}
+.ayah-col-right {width: 30%; float: right;}
+.ayah-box {background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #E1E1E1;box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);margin: 10px 0 20px 0;}
+.ayah-box .inside {padding: 10px;}
+.ayah-box .footer {background: none repeat scroll 0 0 #F5F5F5;border-top: 1px solid #E1E1E1;overflow: hidden;padding: 10px;position: relative;}
+.ayah-box h2 {font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif; color: #236DB6; font-size: 22px; line-height: 29px; padding: 3px 15px 0px 0;margin: 0;font-weight: normal;}
+.ayah-box p {line-height: 18px;}
