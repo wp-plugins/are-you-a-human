@@ -154,6 +154,7 @@ class AYAH {
 		if ($this->ayah_web_service_host == "") {
 			error_log("AYAH::__construct: Warning: Web service host is not defined.  This won't work.");
 		}
+
 	}
 
 	/**
