@@ -1,5 +1,16 @@
 <?php
 
+// TODO: Clean this page up
+
+function ayah_load_library() {
+    $ayah = new AYAH(array( 'publisher_key' => $_SESSION['ayah_options']['publisher_key'],
+                            'scoring_key' => $_SESSION['ayah_options']['scoring_key'],
+                            'web_service_host' => AYAH_WEB_SERVICE_HOST
+                ));
+    return $ayah;
+}
+
+// TODO: Rename
 function ayah_run_controller() {
     
     // special code to clear the AYAH settings from the db

@@ -1,5 +1,6 @@
 <?php
 
+// TODO: Change to get options page and add settings function
 /**
  * Displays the settings page
  */
@@ -163,6 +164,7 @@ echo "<div class='ayah-col-right'>
     
 }
 
+// TODO: Only used here. Delete?
 function ayah_clear_options_button() {
     return "
         <form action=".$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']." method='POST'>

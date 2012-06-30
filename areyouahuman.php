@@ -15,12 +15,12 @@ Version: 1.1.1
 define('AYAH_VERSION', '1.0.1');
 define('AYAH_WEB_SERVICE_HOST', 'ws.areyouahuman.com');
 define('PLUGIN_BASENAME', plugin_basename(__FILE__));
+define('PLUGIN_DIR_PATH', plugin_dir_path(__FILE__));
 
-require_once(plugin_dir_path( __FILE__ ) . "includes/ayah.php");
-require_once(plugin_dir_path( __FILE__ ) . "includes/ayah_helpers.php");
-require_once(plugin_dir_path( __FILE__ ) . "includes/ayah_pages.php");
-require_once(plugin_dir_path( __FILE__ ) . "includes/ayah_functions.php");
-require_once(plugin_dir_path( __FILE__ ) . "includes/ayah_forms.php");
+require_once(PLUGIN_DIR_PATH . "includes/ayah.php");
+require_once(PLUGIN_DIR_PATH . "includes/ayah_form_actions.php");
+require_once(PLUGIN_DIR_PATH . "includes/ayah_functions.php");
+require_once(PLUGIN_DIR_PATH . "includes/ayah_pages.php");
 
 // Set our options to $_SESSION['ayah_options']
 ayah_get_options();
@@ -32,7 +32,7 @@ wp_register_style( 'myPluginStylesheet', plugins_url('css/ayah_styles.css', __FI
 add_action( 'admin_menu', 'ayah_add_admin_menu' );
 
 // Registers the custom plugin action links
-add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'ayah_register_plugin_action_links', 10, 2);
+add_filter( 'plugin_action_links_' . PLUGIN_BASENAME, 'ayah_register_plugin_action_links', 10, 1);
 
 // Registers custom plugin meta links
 add_filter('plugin_row_meta', 'ayah_register_plugin_meta_links', 10, 2);
@@ -87,7 +87,7 @@ function ayah_add_admin_menu() {
  */
 function ayah_register_plugin_action_links($links) {
 
-	$settings_link = '<a href="options-general.php?page='.plugin_basename(__FILE__).'">' . __('Settings', 'captcha') . '</a>';
+	$settings_link = '<a href="options-general.php?page=' . PLUGIN_BASENAME . '">' . __('Settings', 'captcha') . '</a>';
 	array_unshift( $links, $settings_link );
 
 	return $links;
@@ -100,9 +100,8 @@ function ayah_register_plugin_action_links($links) {
  */
 function ayah_register_plugin_meta_links($links, $file) {
 
-	$base = plugin_basename(__FILE__);
+	if ($file == PLUGIN_BASENAME) {
 
-	if ($file == $base) {
 		$links[] = '<a href="options-general.php?page=are-you-a-human/areyouahuman.php">' . __('Settings','captcha') . '</a>';
 		$links[] = '<a href="http://support.areyouahuman.com" target="_blank">' . __('Support','captcha') . '</a>';
 		$links[] = '<a href="http://www.areyouahuman.com/feedback">' . __('Feedback','captcha') . '</a>';
