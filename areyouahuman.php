@@ -16,17 +16,13 @@ define('AYAH_VERSION', '1.0.1');
 define('AYAH_WEB_SERVICE_HOST', 'ws.areyouahuman.com');
 define('PLUGIN_BASENAME', plugin_basename(__FILE__));
 define('PLUGIN_DIR_PATH', plugin_dir_path(__FILE__));
-
 require_once(PLUGIN_DIR_PATH . "includes/ayah.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_form_actions.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_functions.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_pages.php");
 
-// Set our options to $_SESSION['ayah_options']
-ayah_get_options();
-
 // Register a style sheet that can be loaded later with wp_enqueue_style
-wp_register_style( 'myPluginStylesheet', plugins_url('css/ayah_styles.css', __FILE__) );
+wp_register_style('myPluginStylesheet', plugins_url('css/ayah_styles.css', __FILE__));
 
 // Adds a AYAH Options page link to the Settings admin menu
 add_action( 'admin_menu', 'ayah_add_admin_menu' );
@@ -37,7 +33,8 @@ add_filter( 'plugin_action_links_' . PLUGIN_BASENAME, 'ayah_register_plugin_acti
 // Registers custom plugin meta links
 add_filter('plugin_row_meta', 'ayah_register_plugin_meta_links', 10, 2);
 
-ayah_add_playthru();
+// Initialize our plugin on every init call
+add_action('init', 'ayah_add_playthru');
 
 /**
  * Adds the playthru to the forms chosen in the options menu
@@ -47,8 +44,8 @@ ayah_add_playthru();
  * @link http://codex.wordpress.org/Function_Reference/add_action
  */
 function ayah_add_playthru() {
-    
-    $ayah_options = $_SESSION['ayah_options'];
+
+    $ayah_options = ayah_get_options();
 
     // If enable_comment_form is set in the options, attach to the comment hooks
     if( 1 == $ayah_options['enable_comment_form'] ) {
@@ -77,7 +74,7 @@ function ayah_add_playthru() {
  * @link http://codex.wordpress.org/Function_Reference/add_options_page
  */
 function ayah_add_admin_menu() {
-	add_options_page( "Are You a Human Options", "Are You a Human", 'manage_options',  __FILE__, 'ayah_run_controller' );
+	add_options_page( "Are You a Human Options", "Are You a Human", 'manage_options', __FILE__, 'ayah_choose_options_page' );
 }
 
 /**
