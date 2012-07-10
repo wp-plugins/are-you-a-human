@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Are You A Human
- * @version 1.1.1
+ * @version 1.2.0
  */
 /*
 Plugin Name: Are You A Human
@@ -9,8 +9,16 @@ Plugin URI:  http://wordpress.org/extend/plugins/are-you-a-human/
 Description: The Are You a Human PlayThru plugin replaces obnoxious CAPTCHAs with fun, simple games.  Fight spam with fun
 Author: Are You A Human
 Author URI: http://www.areyouahuman.com/
-Version: 1.1.1
+Version: 1.2.0
 */
+
+/* TODO:
+ * Split the error notification and options page styles into two sheets
+ * Allow users to customize error message
+ * Add a text domain
+ * Validate the user's keys
+ * Switch to Settings API for settings page
+ */
 
 define('AYAH_VERSION', '1.0.1');
 define('AYAH_WEB_SERVICE_HOST', 'ws.areyouahuman.com');
@@ -20,9 +28,10 @@ require_once(PLUGIN_DIR_PATH . "includes/ayah.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_form_actions.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_functions.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_pages.php");
+require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/ayah_cf7.php");
 
 // Register a style sheet that can be loaded later with wp_enqueue_style
-wp_register_style('myPluginStylesheet', plugins_url('css/ayah_styles.css', __FILE__));
+wp_register_style('AYAHStylesheet', plugins_url('css/ayah_styles.css', __FILE__));
 
 // Adds a AYAH Options page link to the Settings admin menu
 add_action( 'admin_menu', 'ayah_add_admin_menu' );
@@ -44,6 +53,8 @@ add_action('init', 'ayah_add_playthru');
  * @link http://codex.wordpress.org/Function_Reference/add_action
  */
 function ayah_add_playthru() {
+	ayah_check_for_other_plugins();
+	ayah_add_admin_notice_action();
 
     $ayah_options = ayah_get_options();
 
@@ -66,6 +77,54 @@ function ayah_add_playthru() {
         add_action('lostpassword_form', 'ayah_lost_password_form');
         add_action('lostpassword_post', 'ayah_lost_password_post');
     }
+	
+	// Registers the AYAH CF7 Actions if enabled and plugin is activated
+	if (CF7_DETECTED && 1 == $ayah_options['enable_cf7']) {
+		ayah_register_cf7_actions();
+	}
+	
+	if (AYAHCF7_DETECTED) {
+		require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+		deactivate_plugins('are-you-a-human-cf7-extension/are-you-a-human-cf7-extension.php');
+		$options = ayah_get_options();
+		$options['enable_cf7'] = '1';
+		ayah_set_options($options);
+	}
+}
+
+// TODO: Switching to the settings API will fix this bad function
+/**
+ *	Registers a hook that displays an admin notice if any keys are missing
+ */
+function ayah_add_admin_notice_action() {
+	// Adds an admin notice to set the keys if not set
+	if (ayah_is_key_missing()) {
+		add_action('admin_notices', 'ayah_display_keys_notice');
+	}
+}
+
+/**
+ * Checks if certain plugins are active so we can add settings for them on the
+ * options page
+ */
+function ayah_check_for_other_plugins() {
+	require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+	define('CF7_DETECTED', is_plugin_active('contact-form-7/wp-contact-form-7.php'));
+	define('AYAHCF7_DETECTED', is_plugin_active('are-you-a-human-cf7-extension/are-you-a-human-cf7-extension.php'));
+}
+
+/**
+ * Registers all the actions necessary to integrate PlayThru with CF7
+ */
+function ayah_register_cf7_actions() {
+	// Register the AYAH CF7 shortcode
+	ayahcf7_register_shortcode();
+	
+	// Register the AYAH CF7 validation function
+	add_filter('wpcf7_validate_ayah', 'ayahcf7_validate', 10, 1);
+	
+	// Register the AYAH CF7 tag pane generator
+	add_action('admin_init', 'ayahcf7_tag_generator');
 }
 
 /**
