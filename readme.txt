@@ -3,7 +3,7 @@ Contributors: areyouahuman
 Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, captcha, verification, security, bots, spambots, human, Contact form 7, security, login, registration, capcha, catcha, ipad, iphone, android, html5, catcha, comment
 Donate Link: http://portal.areyouahuman.com
 Requires at least: 2.8
-Tested up to: 3.3.2
+Tested up to: 3.4.1
 Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -66,6 +66,10 @@ If you have other questions, please let us know!  We love feedback, and it can b
 1. Lightbox Version
 
 == Changelog ==
+= 1.2.0 =
+* Contact Form 7 integration
+* Major refactoring
+
 = 1.1.1 =
 * Theme support and compatibility
 * UI changes

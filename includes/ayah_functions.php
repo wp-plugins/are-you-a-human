@@ -11,7 +11,6 @@ function ayah_load_library() {
 }
 
 function ayah_choose_options_page() {
-    
     // Used for testing/debugging. Clears the AYAH settings from the database
     if ($_POST['ayah_clear_options'] == 'true') {
         ayah_delete_options();
@@ -40,6 +39,26 @@ function ayah_choose_options_page() {
 	
 	// Display the settings page
     ayah_get_options_page($action);
+}
+
+function ayah_display_keys_notice() {
+	wp_enqueue_style('AYAHStylesheet');
+	$url = admin_url("options-general.php?page=" . PLUGIN_BASENAME);
+	$error_message = "<div class='ayah-error-text'>You've enabled the <strong>Are You a Human</strong> plugin, but some of your keys appear to be missing.</div> <a href='" . $url .  "' class='ayah-error-button'>Enter Keys &raquo;</a>";
+	echo "<div class='ayah-error'>" . $error_message . "</div>";
+}
+
+// TODO: Change when settings api is implemented
+function ayah_is_key_missing() {
+	if (array_key_exists('ayah', $_POST)) {
+		$options = ayah_get_settings_post();
+	} else {
+		$options = ayah_get_options();
+	}
+
+	if ($options['publisher_key'] == '' || $options['scoring_key'] == '') {
+		return true;
+	}
 }
 
 function ayah_update_settings() {
@@ -77,6 +96,7 @@ function ayah_upgrade_legacy_plugin() {
     $enable_register_form = $ayah_options['ayah_register_form'];
     $enable_lost_password_form = $ayah_options['ayah_lost_password_form'];
     $enable_comment_form = $ayah_options['ayah_comments_form'];
+	$enable_cf7 = $ayah_options['ayah_cf7'];
     $hide_registered_users = $ayah_options['ayah_hide_register'];
     
     // Clear the options out
@@ -89,6 +109,7 @@ function ayah_upgrade_legacy_plugin() {
                         'enable_register_form' => $enable_register_form,
                         'enable_lost_password_form' => $enable_lost_password_form,
                         'enable_comment_form' => $enable_comment_form,
+						'enable_cf7' => $enable_cf7,
                         'hide_registered_users' => $hide_registered_users,
 						'submit_id' => 'submit'
                     );
@@ -137,6 +158,7 @@ function ayah_check_for_upgrade_or_install() {
     }
 }
 
+// This function can be removed once the Settings API is implemented
 /**
  * Updates the options in the database
  */
@@ -148,10 +170,11 @@ function ayah_set_options($options) {
 	                            'version',
 	                            'enable_register_form',
                                 'enable_lost_password_form',
-                                'hide_registered_users',
                                 'enable_comment_form',
+								'enable_cf7',
+								'hide_registered_users',
 								'submit_id');
-	// TODO: Is this necessary?
+
 	$new_options = array();
 	foreach($options_allowed as $optal) {
 	    if(isset($options[$optal])) {
@@ -220,6 +243,7 @@ function ayah_get_settings_post() {
                         'enable_register_form' => $_POST['ayah']['enable_register_form'],
                         'enable_lost_password_form' => $_POST['ayah']['enable_lost_password_form'],
                         'enable_comment_form' => $_POST['ayah']['enable_comment_form'],
+						'enable_cf7' => $_POST['ayah']['enable_cf7'],
                         'hide_registered_users' => $_POST['ayah']['hide_registered_users'],
 						'submit_id' => $_POST['ayah']['submit_id']
                     );
