@@ -96,7 +96,6 @@ function ayah_upgrade_legacy_plugin() {
     $enable_register_form = $ayah_options['ayah_register_form'];
     $enable_lost_password_form = $ayah_options['ayah_lost_password_form'];
     $enable_comment_form = $ayah_options['ayah_comments_form'];
-	$enable_cf7 = $ayah_options['ayah_cf7'];
     $hide_registered_users = $ayah_options['ayah_hide_register'];
     
     // Clear the options out
@@ -109,7 +108,6 @@ function ayah_upgrade_legacy_plugin() {
                         'enable_register_form' => $enable_register_form,
                         'enable_lost_password_form' => $enable_lost_password_form,
                         'enable_comment_form' => $enable_comment_form,
-						'enable_cf7' => $enable_cf7,
                         'hide_registered_users' => $hide_registered_users,
 						'submit_id' => 'submit'
                     );
@@ -171,7 +169,6 @@ function ayah_set_options($options) {
 	                            'enable_register_form',
                                 'enable_lost_password_form',
                                 'enable_comment_form',
-								'enable_cf7',
 								'hide_registered_users',
 								'submit_id');
 
@@ -243,7 +240,6 @@ function ayah_get_settings_post() {
                         'enable_register_form' => $_POST['ayah']['enable_register_form'],
                         'enable_lost_password_form' => $_POST['ayah']['enable_lost_password_form'],
                         'enable_comment_form' => $_POST['ayah']['enable_comment_form'],
-						'enable_cf7' => $_POST['ayah']['enable_cf7'],
                         'hide_registered_users' => $_POST['ayah']['hide_registered_users'],
 						'submit_id' => $_POST['ayah']['submit_id']
                     );

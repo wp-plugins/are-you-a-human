@@ -1,8 +1,8 @@
 <div class='ayah-col-right'>
 	<div class='ayah-box'>
 		<div class='inside'>
-			<h2>PlayThru &amp; Contact Form 7</h2>
-			<p>PlayThru is now available for Contact Form 7 integration. To get PlayThru working with your Contact Form 7 Plugin, simply install Contact Form 7, and the option to enable it on the forms will appear on this page. Check the box to enable it, and you're good to go!</p>
+			<h2>Contact Form 7 and Gravity Forms Integration</h2>
+			<p>PlayThru now supports Contact Form 7 and Gravity Forms integration. Simply install the plugin and Are You A Human will appear as an option in the form builder!</p>
 		</div>
 	</div>
 	
@@ -42,9 +42,6 @@
 					<p><input type='checkbox' name='ayah[enable_register_form]' value='1' <?php echo $chk_enable_register_form?> /> Registration Form</p>
 					<p><input type='checkbox' name='ayah[enable_lost_password_form]' value='1' <?php echo $chk_enable_lost_password_form?> /> Lost Password Form</p>
 					<p><input type='checkbox' name='ayah[enable_comment_form]' value='1' <?php echo $chk_enable_comment_form?> /> Comment Form</p>
-					<?php if (CF7_DETECTED): ?>
-					<p><input type='checkbox' name='ayah[enable_cf7]' value='1' <?php echo $chk_enable_cf7?> /> Contact Form 7</p>
-					<?php endif; ?>
 				</fieldset>
 				<fieldset>
 					<label>Hide from registered users?</label>

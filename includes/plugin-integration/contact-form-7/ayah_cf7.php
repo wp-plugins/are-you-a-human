@@ -1,6 +1,6 @@
 <?php
 
-$ERROR_MESSAGE = 'We could not verify that you are a human. Please try again.';
+$CF7_ERROR_MESSAGE = 'We could not verify that you are a human. Please try again.';
 
 /**
  * Register the AYAH CF7 shortcode
@@ -27,9 +27,9 @@ function ayahcf7_validate($errors) {
 		$errors['valid'] = true;
 		return $errors;
     } else {
-		global $ERROR_MESSAGE;
+		global $CF7_ERROR_MESSAGE;
 		$errors['valid'] = false;
-		$errors['reason']['your-message'] = __($ERROR_MESSAGE, 'ayah');
+		$errors['reason']['your-message'] = __($CF7_ERROR_MESSAGE, 'ayah');
 		return $errors;
     }
 }

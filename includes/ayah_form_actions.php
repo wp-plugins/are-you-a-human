@@ -1,6 +1,6 @@
 <?php
 
-$ERROR_MESSAGE = 'We could not verify that you are a human. Press your browser\'s back button and try again.';
+$AYAH_ERROR_MESSAGE = 'We could not verify that you are a human. Press your browser\'s back button and try again.';
 
 /**
  * Action attached to comment_form_after_fields and comment_form_logged_in_after hooks
@@ -106,8 +106,8 @@ function ayah_comment_post($comment) {
 	if ( $ayah->scoreResult() ) {	
 		return $comment;
 	} else {
-		global $ERROR_MESSAGE;
-		wp_die( __($ERROR_MESSAGE, 'ayah'));
+		global $AYAH_ERROR_MESSAGE;
+		wp_die( __($AYAH_ERROR_MESSAGE, 'ayah'));
 	}
 }
 
@@ -156,7 +156,7 @@ function ayah_lost_password_post() {
     if ( $ayah->scoreResult() ) {
         return;
     } else {
-		global $ERROR_MESSAGE;
-        wp_die(__($ERROR_MESSAGE,'ayah'));
+		global $AYAH_ERROR_MESSAGE;
+        wp_die(__($AYAH_ERROR_MESSAGE,'ayah'));
     }
 }
