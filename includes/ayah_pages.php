@@ -107,7 +107,6 @@ function ayah_get_form($action, $button) {
 	$chk_enable_register_form = ($ayah_options['enable_register_form'] == '1') ? 'checked' : '';
 	$chk_enable_lost_password_form = ($ayah_options['enable_lost_password_form'] == '1') ? 'checked' : '';
 	$chk_enable_comment_form = ($ayah_options['enable_comment_form'] == '1') ? 'checked' : '';
-	$chk_enable_cf7 = ($ayah_options['enable_cf7'] == '1') ? 'checked' : '';
 	$chk_hide_registered_users = ($ayah_options['hide_registered_users'] == '1') ? 'checked' : '';
 
     include('settings_page.php');

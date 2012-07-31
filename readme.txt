@@ -1,10 +1,10 @@
 === Are You a Human - Free CAPTCHA Alternative ===
 Contributors: areyouahuman
-Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, captcha, verification, security, bots, spambots, human, Contact form 7, security, login, registration, capcha, catcha, ipad, iphone, android, html5, catcha, comment
+Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, captcha, verification, security, bots, spambots, human, Contact form 7, security, login, registration, capcha, catcha, ipad, iphone, android, html5, catcha, comment, cf7, gravity forms
 Donate Link: http://portal.areyouahuman.com
 Requires at least: 2.8
 Tested up to: 3.4.1
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,8 +51,6 @@ Thank you and fight bots with fun!
 
 == Frequently Asked Questions ==
 
-= What browsers do you support? =
-
 For a full list of frequently asked questions, please see our [FAQ page](http://areyouahuman.com/faqs)
 
 If you have other questions, please let us know!  We love feedback, and it can be left at our [support forum](http://support.areyouahuman.com).
@@ -66,6 +64,10 @@ If you have other questions, please let us know!  We love feedback, and it can b
 1. Lightbox Version
 
 == Changelog ==
+= 1.3.0 =
+* Gravity Forms integration
+* All form integrations are enabled by default
+
 = 1.2.0 =
 * Contact Form 7 integration
 * Major refactoring

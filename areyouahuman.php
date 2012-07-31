@@ -28,7 +28,8 @@ require_once(PLUGIN_DIR_PATH . "includes/ayah.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_form_actions.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_functions.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_pages.php");
-require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/ayah_cf7.php");
+require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/contact-form-7/ayah_cf7.php");
+require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/gravity-forms/ayah_gf.php");
 
 // Register a style sheet that can be loaded later with wp_enqueue_style
 wp_register_style('AYAHStylesheet', plugins_url('css/ayah_styles.css', __FILE__));
@@ -78,17 +79,20 @@ function ayah_add_playthru() {
         add_action('lostpassword_post', 'ayah_lost_password_post');
     }
 	
-	// Registers the AYAH CF7 Actions if enabled and plugin is activated
-	if (CF7_DETECTED && 1 == $ayah_options['enable_cf7']) {
+	// Registers the AYAH CF7 Actions if plugin is activated
+	if (CF7_DETECTED) {
 		ayah_register_cf7_actions();
 	}
 	
+	// Registers the AYAH GF Actions if plugin is activated
+	if (GF_DETECTED) {
+		ayah_register_gf_actions();
+	}
+	
+	// Deactivates the old AYAH CF7 extension if activated
 	if (AYAHCF7_DETECTED) {
 		require_once(ABSPATH . 'wp-admin/includes/plugin.php');
 		deactivate_plugins('are-you-a-human-cf7-extension/are-you-a-human-cf7-extension.php');
-		$options = ayah_get_options();
-		$options['enable_cf7'] = '1';
-		ayah_set_options($options);
 	}
 }
 
@@ -111,10 +115,11 @@ function ayah_check_for_other_plugins() {
 	require_once(ABSPATH . 'wp-admin/includes/plugin.php');
 	define('CF7_DETECTED', is_plugin_active('contact-form-7/wp-contact-form-7.php'));
 	define('AYAHCF7_DETECTED', is_plugin_active('are-you-a-human-cf7-extension/are-you-a-human-cf7-extension.php'));
+	define('GF_DETECTED', is_plugin_active('gravityforms/gravityforms.php'));
 }
 
 /**
- * Registers all the actions necessary to integrate PlayThru with CF7
+ * Registers all the actions and filters necessary to integrate PlayThru with CF7
  */
 function ayah_register_cf7_actions() {
 	// Register the AYAH CF7 shortcode
@@ -125,6 +130,16 @@ function ayah_register_cf7_actions() {
 	
 	// Register the AYAH CF7 tag pane generator
 	add_action('admin_init', 'ayahcf7_tag_generator');
+}
+
+/**
+ * Registers all the actions and filters necessary to integrate PlayThru with GF
+ */
+function ayah_register_gf_actions() {
+	add_filter('gform_add_field_buttons', 'ayahgf_add_button');
+	add_filter('gform_field_type_title', 'ayahgf_add_field_title');
+	add_filter('gform_field_validation', 'ayahgf_validate', 10, 4);
+	add_filter("gform_field_input", "ayahgf_field", 10, 5);
 }
 
 /**
