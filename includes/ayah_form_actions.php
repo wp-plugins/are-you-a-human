@@ -37,7 +37,7 @@ function ayah_comment_form() {
 
 	$html = $ayah->getPublisherHTML();
 	echo "<div id='ayah-comment' style='text-align: center'>" . $html .  "</div>";
-	echo rearrange_elements($options['submit_id']);
+	echo ayah_rearrange_elements($options['submit_id']);
 }
 
 /**
@@ -47,29 +47,50 @@ function ayah_comment_form() {
  * TODO: It might be a good idea to use wp_enqueue_script instead, but there
  * might be issues with dynamically inserting the button
  */
-function rearrange_elements($button_id = 'submit') {
+function ayah_rearrange_elements($button_id = 'submit') {
+	if ($button_id == '') {
+		$button_id = 'submit';
+	}
+	
 	$script = 	"<script type='text/javascript'>
-					var button = document.getElementById('" . $button_id . "');
-					if (button != null) {
-						button.parentNode.removeChild(button);
-						document.getElementById('ayah-comment').appendChild(button);
-						
-						var el = document.getElementById('ayah-comment-after');
-						el.parentNode.removeChild(el);					
-					}";
+					// This ensures the code is executed in the right order
+					if (AYAH.divIDChanged == true) {
+						rearrange_form_elements();
+					} else {
+						// TODO: This may not be long enough. The best way to do this is to
+						// check again after 100 milliseconds (or shorter) until divIdChanged is true
+						setTimeout('rearrange_form_elements()', 1000);
+					}
+					
+					function rearrange_form_elements() {
+						var button = document.getElementById('" . $button_id . "');
+						if (button != null) {
+							button.parentNode.removeChild(button);
+							document.getElementById('ayah-comment').appendChild(button);
+							
+							var el = document.getElementById('ayah-comment-after');
+							el.parentNode.removeChild(el);					
+						}";
 	
 	// If the other playthru hook was called, we may need to remove this playthru
 	if (did_action('comment_form_logged_in_after') != 0 || did_action('comment_form_after_fields') != 0) {
-		$script .=	"else { 
-						// If we don't find the submit button move the PlayThru up
-						var afterDiv = document.getElementById('ayah-comment-after');
-						// But only if we can move it up
-						if (afterDiv != null) {
-							var playThruDiv = document.getElementById('AYAH');
-							playThruDiv.parentNode.removeChild(playThruDiv);
-							afterDiv.appendChild(playThruDiv);
-						}								
+		$script .=		"else { 
+							// If we don't find the submit button move the PlayThru up
+							var afterDiv = document.getElementById('ayah-comment-after');
+							// But only if we can move it up
+							if (afterDiv != null) {
+								var playThruDiv = document.getElementById('AYAH');
+								if (playThruDiv == null) {
+									var ss = document.getElementsByName('session_secret');
+									playThruDiv = document.getElementById('AYAH' + ss[1].value);
+								}
+								playThruDiv.parentNode.removeChild(playThruDiv);
+								afterDiv.appendChild(playThruDiv);
+							}								
+						}
 					}";
+	} else {
+		echo "}";
 	}
 	
 	$script .= "</script>";
