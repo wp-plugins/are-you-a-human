@@ -4,7 +4,7 @@ Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, cap
 Donate Link: http://portal.areyouahuman.com
 Requires at least: 2.8
 Tested up to: 3.4.1
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,7 +19,9 @@ PlayThru [pley throo] noun
 
 PlayThru, created by Are You a Human, replaces the awful user experience of normal CAPTCHA with short and simple games.  Instead of the twisted and distorted CAPTCHA text, PlayThru's games are fun for your users.
 
-PlayThru is free to use on your site.
+PlayThru is free to use on your site. 
+
+PlayThru now works with Contact Form 7 and Gravity forms! PlayThru is automatically integrated with Contact Form 7 or Gravity Forms, all you need to do is add it within the form builder. 
 
 Our games take 5 to 10 seconds to complete, versus the 12 second average of CAPTCHA.  PlayThru also increases form submissions by up to 40% over other CAPTCHA options like reCaptcha.  We serve games in both HTML5 and Flash.  We use six layers of security to fight the bots.  We collect data on how a visitor plays our game, which we then feed into our algorithm to continuously improve our security.
 
