@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Are You A Human
- * @version 1.3.1
+ * @version 1.3.2
  */
 /*
 Plugin Name: Are You A Human
@@ -9,7 +9,7 @@ Plugin URI:  http://wordpress.org/extend/plugins/are-you-a-human/
 Description: The Are You a Human PlayThru plugin replaces obnoxious CAPTCHAs with fun, simple games.  Fight spam with fun
 Author: Are You A Human
 Author URI: http://www.areyouahuman.com/
-Version: 1.3.1
+Version: 1.3.2
 */
 
 /* TODO:
@@ -45,6 +45,9 @@ add_filter('plugin_row_meta', 'ayah_register_plugin_meta_links', 10, 2);
 
 // Initialize our plugin on every init call
 add_action('init', 'ayah_add_playthru');
+
+// Reload PlayThru on contact form 7 send
+add_filter( 'wpcf7_ajax_json_echo', 'ajax_json_echo_filter');
 
 /**
  * Adds the playthru to the forms chosen in the options menu
@@ -178,4 +181,22 @@ function ayah_register_plugin_meta_links($links, $file) {
 		$links[] = '<a href="http://www.areyouahuman.com/feedback">' . __('Feedback','captcha') . '</a>';
 	}
 	return $links;
+}
+
+/**
+ * Reloads the iframe for situations where the page isn't submitted, like in cf7
+ */
+function ajax_json_echo_filter( $items ) {
+	if ( ! is_array( $items['onSubmit'] ) )
+	$items['onSubmit'] = array();
+
+	$div_id = "AYAH" . $_REQUEST["session_secret"];
+	
+	$items['onSubmit'][] = '
+		var div_id = document.getElementById("' . $div_id . '");
+		var iframe_id = div_id.getElementsByTagName("iframe")[0].id;
+		document.getElementById(iframe_id).src = document.getElementById(iframe_id).src;
+	';
+	
+	return $items;
 }
