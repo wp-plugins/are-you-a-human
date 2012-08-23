@@ -4,7 +4,7 @@ Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, cap
 Donate Link: http://portal.areyouahuman.com
 Requires at least: 2.8
 Tested up to: 3.4.1
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,14 @@ If you have other questions, please let us know!  We love feedback, and it can b
 1. Lightbox Version
 
 == Changelog ==
+
+= 1.3.2 =
+* Fixed bug with Contact Form 7 integration where PlayThru wouldn't correctly validate
+
+= 1.3.1 =
+* Updated ayah.php
+* Gravity Forms and Contact Form 7 multiple PlayThru bug fixed
+
 = 1.3.0 =
 * Gravity Forms integration
 * All form integrations are enabled by default
