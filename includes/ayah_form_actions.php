@@ -87,7 +87,7 @@ function ayah_rearrange_elements($button_id = 'submit') {
 								playThruDiv.parentNode.removeChild(playThruDiv);
 								afterDiv.appendChild(playThruDiv);
 							}								
-						}
+						}";
 	}
 
 	// Add the ending curly brace for the rearrange_form_elements() function.
