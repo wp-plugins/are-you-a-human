@@ -88,13 +88,15 @@ function ayah_rearrange_elements($button_id = 'submit') {
 								afterDiv.appendChild(playThruDiv);
 							}								
 						}
-					}";
-	} else {
-		echo "}";
 	}
+
+	// Add the ending curly brace for the rearrange_form_elements() function.
+	$script .= "}";
 	
+	// Add the closing script tage.
 	$script .= "</script>";
 			  
+	// Return the script.
 	return $script;
 }
 

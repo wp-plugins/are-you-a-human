@@ -67,6 +67,9 @@ If you have other questions, please let us know!  We love feedback, and it can b
 
 == Changelog ==
 
+= 1.3.3 =
+* Fixed bug that caused stray curly brace to appear on screen
+
 = 1.3.2 =
 * Fixed bug with Contact Form 7 integration where PlayThru wouldn't correctly validate
 
