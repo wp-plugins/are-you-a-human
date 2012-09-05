@@ -21,10 +21,10 @@ function ayahcf7_tag_handler($atts) {
  * Attached to wpcf7_validate. Validates PlayThru result.
  */
 function ayahcf7_validate($errors) {
+
     $ayah = ayah_load_library();
     
     if ($ayah->scoreResult()) {
-		$errors['valid'] = true;
 		return $errors;
     } else {
 		global $CF7_ERROR_MESSAGE;
