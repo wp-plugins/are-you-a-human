@@ -3,8 +3,8 @@ Contributors: areyouahuman
 Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, captcha, verification, security, bots, spambots, human, Contact form 7, security, login, registration, capcha, catcha, ipad, iphone, android, html5, catcha, comment, cf7, gravity forms
 Donate Link: http://portal.areyouahuman.com
 Requires at least: 2.8
-Tested up to: 3.4.1
-Stable tag: 1.3.4
+Tested up to: 3.4.2
+Stable tag: 1.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,9 @@ If you have other questions, please let us know!  We love feedback, and it can b
 1. Lightbox Version
 
 == Changelog ==
+
+= 1.3.5 =
+* Updated ayah.php to version 1.1.3
 
 = 1.3.4 =
 * Fixed bug with validation in Contact Form 7 integration
