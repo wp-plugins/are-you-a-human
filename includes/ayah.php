@@ -3,7 +3,7 @@
  * Are You A Human
  * PHP Integration Library
  *
- * @version 1.1.3
+ * @version 1.1.4
  *
  *    - Documentation and latest version
  *	  http://portal.areyouahuman.com/help
@@ -32,7 +32,7 @@ class AYAH {
 
 	protected $__debug_mode = FALSE;
 	protected $__message_buffer = array();
-	protected $__version_number = '1.1.3';
+	protected $__version_number = '1.1.4';
 
 	/**
 	 * Constructor
@@ -396,7 +396,7 @@ class AYAH {
 		$name = 'ayah_config.php';
 		$locations = array(
 			'./',
-			__DIR__."/",
+			dirname(__FILE__)."/",
 		);
 
 		// Look for the config file in each location.
