@@ -67,6 +67,9 @@ If you have other questions, please let us know!  We love feedback, and it can b
 
 == Changelog ==
 
+= 1.3.6 =
+* Updated ayah.php to version 1.1.4
+
 = 1.3.5 =
 * Updated ayah.php to version 1.1.3
 
