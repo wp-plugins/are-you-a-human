@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Are You A Human
- * @version 1.3.6
+ * @version 1.3.7
  */
 /*
 Plugin Name: Are You A Human
@@ -9,7 +9,7 @@ Plugin URI:  http://wordpress.org/extend/plugins/are-you-a-human/
 Description: The Are You a Human PlayThru plugin replaces obnoxious CAPTCHAs with fun, simple games.  Fight spam with fun
 Author: Are You A Human
 Author URI: http://www.areyouahuman.com/
-Version: 1.3.6
+Version: 1.3.7
 */
 
 /* TODO:
@@ -32,7 +32,7 @@ require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/contact-form-7/ayah_
 require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/gravity-forms/ayah_gf.php");
 
 // Register a style sheet that can be loaded later with wp_enqueue_style
-wp_register_style('AYAHStylesheet', plugins_url('css/ayah_styles.css', __FILE__));
+add_action('init', 'ayah_register_style');
 
 // Adds a AYAH Options page link to the Settings admin menu
 add_action( 'admin_menu', 'ayah_add_admin_menu' );
@@ -199,4 +199,11 @@ function ajax_json_echo_filter( $items ) {
 	';
 	
 	return $items;
+}
+
+/**
+ * Registers the stylesheet
+ */
+function ayah_register_style() {
+    wp_register_style('AYAHStylesheet', plugins_url('css/ayah_styles.css', __FILE__));
 }
