@@ -3,7 +3,7 @@
  * Are You A Human
  * PHP Integration Library
  *
- * @version 1.1.4
+ * @version 1.1.5
  *
  *    - Documentation and latest version
  *	  http://portal.areyouahuman.com/help
@@ -24,15 +24,21 @@
  *
  */
 
+// Only define the AYAH class if it does not already exist.
+if ( ! class_exists('AYAH')):
+
 class AYAH {
-	protected $ayah_publisher_key;
-	protected $ayah_scoring_key;
-	protected $ayah_web_service_host;
+	// Set defaults for values that can be specified via the config file or passed in via __construct.
+	protected $ayah_publisher_key = '';
+	protected $ayah_scoring_key = '';
+	protected $ayah_web_service_host = 'ws.areyouahuman.com';
+	protected $ayah_debug_mode = FALSE;
+
 	protected $session_secret;
 
-	protected $__debug_mode = FALSE;
+	protected $__valid_construct_params = array('publisher_key', 'scoring_key', 'web_service_host', 'debug_mode');
 	protected $__message_buffer = array();
-	protected $__version_number = '1.1.4';
+	protected $__version_number = '1.1.5';
 
 	/**
 	 * Constructor
@@ -48,61 +54,67 @@ class AYAH {
 			$this->__log("DEBUG", __FUNCTION__, "The ayah_config.php file is missing.");
 		}
 
-		if(array_key_exists("session_secret", $_REQUEST)) {
-			$this->session_secret = $_REQUEST["session_secret"];
-		}
-
-		// Set them to defaults
-		$this->ayah_publisher_key = "";
-		$this->ayah_scoring_key = "";
-		$this->ayah_web_service_host = "ws.areyouahuman.com";
-
 		// If the constants exist, override with those
-		if (defined('AYAH_PUBLISHER_KEY')) {
+		if (defined('AYAH_PUBLISHER_KEY'))
+		{
 			$this->ayah_publisher_key = AYAH_PUBLISHER_KEY;
 		}
-
-		if (defined('AYAH_SCORING_KEY')) {
+		if (defined('AYAH_SCORING_KEY'))
+		{
 			$this->ayah_scoring_key = AYAH_SCORING_KEY;
 		}
-
-		if (defined('AYAH_WEB_SERVICE_HOST')) {
+		if (defined('AYAH_WEB_SERVICE_HOST'))
+		{
 			$this->ayah_web_service_host = AYAH_WEB_SERVICE_HOST;
 		}
+		if (defined('AYAH_DEBUG_MODE'))
+		{
+			$this->ayah_debug_mode = AYAH_DEBUG_MODE;
+		}
 
-		// Lastly grab the parameters input and save them
-		foreach (array_keys($params) as $key) {
-			if (in_array($key, array("publisher_key", "scoring_key", "web_service_host"))) {
+		// Lastly, the params passed in can override the values set above.
+		foreach ((array)$params as $key => $value)
+		{
+			if (in_array($key, $this->__valid_construct_params))
+			{
 				$variable = "ayah_" . $key;
-				$this->$variable = $params[$key];
-			} else {
+				$this->$variable = $value;
+			}
+			else
+			{
 				$this->__log("ERROR", __FUNCTION__, "Unrecognized key for constructor param: '$key'");
 			}
 		}
 
-		// Generate some warnings if a foot shot is coming
-		if ($this->ayah_publisher_key == "") {
+		// Generate some warnings/errors if any of the needed variables is not set.
+		if ($this->ayah_publisher_key == "")
+		{
 			$this->__log("ERROR", __FUNCTION__, "Warning: Publisher key is not defined.  This won't work.");
 		}
 		else
 		{
 			$this->__log("DEBUG", __FUNCTION__, "Publisher key: '$this->ayah_publisher_key'");
 		}
-
-		if ($this->ayah_scoring_key == "") {
+		if ($this->ayah_scoring_key == "")
+		{
 			$this->__log("ERROR", __FUNCTION__, "Warning: Scoring key is not defined.  This won't work.");
 		}
 		else
 		{
 			$this->__log("DEBUG", __FUNCTION__, "Scoring key: '$this->ayah_scoring_key'");
 		}
-
-		if ($this->ayah_web_service_host == "") {
+		if ($this->ayah_web_service_host == "")
+		{
 			$this->__log("ERROR", __FUNCTION__, "Warning: Web service host is not defined.  This won't work.");
 		}
 		else
 		{
 			$this->__log("DEBUG", __FUNCTION__, "AYAH Webservice host: '$this->ayah_web_service_host'");
+		}
+
+		// If available, set the session secret.
+		if(array_key_exists("session_secret", $_REQUEST)) {
+			$this->session_secret = $_REQUEST["session_secret"];
 		}
 	}
 
@@ -355,7 +367,8 @@ class AYAH {
 		// Set it if the mode is passed.
 		if (null !== $mode)
 		{
-			$this->__debug_mode = $mode;
+			// Save it.
+			$this->ayah_debug_mode = $mode;
 
 			// Display a message if debug_mode is TRUE.
 			if ($mode)
@@ -369,10 +382,10 @@ class AYAH {
 		}
 
 		// If necessary, set the default.
-		if ( ! isset($this->__debug_mode) or (null == $this->__debug_mode)) $this->__debug_mode = FALSE;
+		if ( ! isset($this->ayah_debug_mode) or (null == $this->ayah_debug_mode)) $this->ayah_debug_mode = FALSE;
 
 		// Return TRUE or FALSE.
-		return ($this->__debug_mode)? TRUE : FALSE;
+		return ($this->ayah_debug_mode)? TRUE : FALSE;
 	}
 
 	/**
@@ -459,3 +472,4 @@ class AYAH {
 	}
 }
 
+endif;	// if ( ! class_exists('AYAH')):
