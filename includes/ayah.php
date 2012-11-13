@@ -3,7 +3,7 @@
  * Are You A Human
  * PHP Integration Library
  *
- * @version 1.1.5
+ * @version 1.1.6
  *
  *    - Documentation and latest version
  *	  http://portal.areyouahuman.com/help
@@ -38,7 +38,7 @@ class AYAH {
 
 	protected $__valid_construct_params = array('publisher_key', 'scoring_key', 'web_service_host', 'debug_mode');
 	protected $__message_buffer = array();
-	protected $__version_number = '1.1.5';
+	protected $__version_number = '1.1.6';
 
 	/**
 	 * Constructor
@@ -263,7 +263,7 @@ class AYAH {
 		rtrim($fields_string,'&');
 
 		// cURL or something else
-		if (function_exists('curl_init'))
+		if (function_exists('curl_init') and function_exists('curl_exec'))
 		{
 			// Build the cURL url.
 			$curl_url = "https://" . $hostname . $path;

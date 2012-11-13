@@ -4,7 +4,7 @@ Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, cap
 Donate Link: http://portal.areyouahuman.com
 Requires at least: 2.8
 Tested up to: 3.4.2
-Stable tag: 1.3.8
+Stable tag: 1.3.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,9 @@ If you have other questions, please let us know!  We love feedback, and it can b
 1. Lightbox Version
 
 == Changelog ==
+
+= 1.3.9 =
+* Updated ayah.php to version 1.1.6 (which was changed to handle sites that have the curl_exec() function disabled)
 
 = 1.3.8 =
 * Updated ayah.php to version 1.1.5 (which was changed so that errors no longer occur when sites load multiple PlayThrus on the same page)
