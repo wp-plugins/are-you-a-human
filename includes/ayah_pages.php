@@ -104,10 +104,10 @@ function ayah_get_form($action, $button) {
 	$ayah_options = ayah_get_options();
 	
 	// Set up our checkbox checked
-	$chk_enable_register_form = ($ayah_options['enable_register_form'] == '1') ? 'checked' : '';
-	$chk_enable_lost_password_form = ($ayah_options['enable_lost_password_form'] == '1') ? 'checked' : '';
-	$chk_enable_comment_form = ($ayah_options['enable_comment_form'] == '1') ? 'checked' : '';
-	$chk_hide_registered_users = ($ayah_options['hide_registered_users'] == '1') ? 'checked' : '';
+	$chk_enable_register_form = ( $ayah_options['enable_register_form'] ) ? 'checked' : '';
+	$chk_enable_lost_password_form = ( $ayah_options['enable_lost_password_form'] ) ? 'checked' : '';
+	$chk_enable_comment_form = ( $ayah_options['enable_comment_form'] ) ? 'checked' : '';
+	$chk_hide_registered_users = ( $ayah_options['hide_registered_users'] ) ? 'checked' : '';
 
     include('settings_page.php');
 }
