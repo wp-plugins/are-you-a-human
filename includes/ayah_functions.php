@@ -12,7 +12,7 @@ function ayah_load_library() {
 
 function ayah_choose_options_page() {
     // Used for testing/debugging. Clears the AYAH settings from the database
-    if ($_POST['ayah_clear_options'] == 'true') {
+    if ( isset( $_POST['ayah_clear_options'] ) && $_POST['ayah_clear_options'] == 'true') {
         ayah_delete_options();
     }
 
@@ -21,8 +21,8 @@ function ayah_choose_options_page() {
 	
     // Get which page to display based on the form post. If a form was not posted
 	// then the default case will select a page to display
-	$action = $_POST['ayah']['action'];
-    switch ($_POST['ayah']['action']) {
+	$action = ( isset( $_POST['ayah']['action'] ) ) ? $_POST['ayah']['action'] : '';
+    switch ( $action ) {
         case 'install':
             ayah_install_plugin();
             break;
@@ -43,7 +43,7 @@ function ayah_choose_options_page() {
 
 function ayah_display_keys_notice() {
 	wp_enqueue_style('AYAHStylesheet');
-	$url = admin_url("options-general.php?page=" . PLUGIN_BASENAME);
+	$url = admin_url("options-general.php?page=".AYAH_PLUGIN_SLUG);
 	$error_message = "<div class='ayah-error-text'>You've enabled the <strong>Are You a Human</strong> plugin, but some of your keys appear to be missing.</div> <a href='" . $url .  "' class='ayah-error-button'>Enter Keys &raquo;</a>";
 	echo "<div class='ayah-error'>" . $error_message . "</div>";
 }
@@ -56,7 +56,7 @@ function ayah_is_key_missing() {
 		$options = ayah_get_options();
 	}
 
-	if ($options['publisher_key'] == '' || $options['scoring_key'] == '') {
+	if ( $options['publisher_key'] == '' ||  $options['scoring_key'] == '' ) {
 		return true;
 	}
 }
@@ -142,7 +142,7 @@ function ayah_check_for_upgrade_or_install() {
     } else {
     
         // Check for legacy version of plugin
-        if ($ayah_options['ayah_webservice_host']) {
+        if ( isset( $ayah_options['ayah_webservice_host'] ) && $ayah_options['ayah_webservice_host'] ) {
         
             // Legacy installed, upgrade
             ayah_upgrade_legacy_plugin();
@@ -196,14 +196,25 @@ function ayah_set_options($options) {
  */
 function ayah_get_options() {
     global $wpmu;
-    
+
+    $defaults = array(
+        'version' => AYAH_VERSION,
+        'publisher_key' => '',
+        'scoring_key'   => '',
+        'enable_register_form' => false,
+        'enable_lost_password_form' => false,
+        'enable_comment_form' => false,
+        'hide_registered_users' => false,
+        'submit_id' => ''
+    );
+
     if ( 1 == $wpmu ){
     	$ayah_options = get_site_option( 'ayah_options', array() ); // blog network
     } else {
     	$ayah_options = get_option( 'ayah_options', array() ); // single site
     }
 
-	return $ayah_options;
+    return wp_parse_args( $ayah_options, $defaults );
 }
 
 /**
@@ -223,27 +234,27 @@ function ayah_delete_options() {
  * Checks if the installed version of the plugin is less than the current version
  */
 function ayah_upto_date($install_version) {
-	$iv = str_replace('.', '', $install_version);
-	$cv = str_replace('.', '', AYAH_VERSION);
-	
-	return ($iv >= $cv);
+    return version_compare( $install_version, AYAH_VERSION, '>=' );
 }
 
 /**
  * Get the options from the submitted form data
  */
 function ayah_get_settings_post() {
+    $ayah_post = $_POST['ayah'];
 
-    $options = array(   'version' => AYAH_VERSION,
-                        'publisher_key' => $_POST['ayah']['publisher_key'],
-                        'scoring_key' => $_POST['ayah']['scoring_key'],
-                        'enable_register_form' => $_POST['ayah']['enable_register_form'],
-                        'enable_lost_password_form' => $_POST['ayah']['enable_lost_password_form'],
-                        'enable_comment_form' => $_POST['ayah']['enable_comment_form'],
-                        'hide_registered_users' => $_POST['ayah']['hide_registered_users'],
-						'submit_id' => $_POST['ayah']['submit_id']
-                    );
-    return $options;
+    $defaults = array(
+        'version' => AYAH_VERSION,
+        'publisher_key' => '',
+        'scoring_key'   => '',
+        'enable_register_form' => '',
+        'enable_lost_password_form' => '',
+        'enable_comment_form' => '',
+        'hide_registered_users' => '',
+        'submit_id' => ''
+        );
+
+    return wp_parse_args( $ayah_post, $defaults );
 }
 
 ?>

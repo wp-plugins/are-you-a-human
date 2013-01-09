@@ -11,7 +11,7 @@ function ayah_comment_form_after() {
 	$options = ayah_get_options();
 	  
 	// Do not show if the user is logged and it is not enabled for logged in users
-	if (is_user_logged_in() and 1 == $options['hide_registered_users']) {
+	if (is_user_logged_in() && 1 == $options['hide_registered_users']) {
 		return;
 	}
 	
@@ -28,7 +28,7 @@ function ayah_comment_form() {
 	$options = ayah_get_options();
 	  
 	// Do not show if the user is logged and it is not enabled for logged in users
-	if (is_user_logged_in() and 1 == $options['hide_registered_users']) {
+	if (is_user_logged_in() && 1 == $options['hide_registered_users']) {
 		return;
 	}
 

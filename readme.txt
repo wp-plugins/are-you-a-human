@@ -4,7 +4,7 @@ Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, cap
 Donate Link: http://portal.areyouahuman.com
 Requires at least: 2.8
 Tested up to: 3.4.2
-Stable tag: 1.3.10
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,9 @@ If you have other questions, please let us know!  We love feedback, and it can b
 1. Lightbox Version
 
 == Changelog ==
+
+= 1.4 =
+* Updated to work correctly with Multisite/Network blogs and fixed numbers minor coding issues.
 
 = 1.3.10 =
 * Updated the images and description for the WordPress plugin page.

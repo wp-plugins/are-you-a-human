@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Are You A Human
- * @version 1.3.10
+ * @version 1.4
  */
 /*
 Plugin Name: Are You A Human
@@ -9,7 +9,7 @@ Plugin URI:  http://wordpress.org/extend/plugins/are-you-a-human/
 Description: The Are You a Human PlayThru plugin replaces obnoxious CAPTCHAs with fun, simple games.  Fight spam with fun
 Author: Are You A Human
 Author URI: http://www.areyouahuman.com/
-Version: 1.3.10
+Version: 1.4
 */
 
 /* TODO:
@@ -20,9 +20,10 @@ Version: 1.3.10
  * Switch to Settings API for settings page
  */
 
-define('AYAH_VERSION', '1.1.5');
+define('AYAH_VERSION', '1.4');
 define('AYAH_WEB_SERVICE_HOST', 'ws.areyouahuman.com');
 define('PLUGIN_BASENAME', plugin_basename(__FILE__));
+define('AYAH_PLUGIN_SLUG', 'are-you-a-human');
 define('PLUGIN_DIR_PATH', plugin_dir_path(__FILE__));
 require_once(PLUGIN_DIR_PATH . "includes/ayah.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_form_actions.php");
@@ -33,6 +34,7 @@ require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/gravity-forms/ayah_g
 
 // Register a style sheet that can be loaded later with wp_enqueue_style
 add_action('init', 'ayah_register_style');
+add_action('login_enqueue_scripts', 'ayah_login_styles');
 
 // Adds a AYAH Options page link to the Settings admin menu
 add_action( 'admin_menu', 'ayah_add_admin_menu' );
@@ -63,7 +65,7 @@ function ayah_add_playthru() {
     $ayah_options = ayah_get_options();
 
     // If enable_comment_form is set in the options, attach to the comment hooks
-    if( 1 == $ayah_options['enable_comment_form'] ) {
+    if( $ayah_options['enable_comment_form'] ) {
 		add_action('comment_form_after_fields', 'ayah_comment_form_after');
 		add_action('comment_form_logged_in_after', 'ayah_comment_form_after');
 		add_action('comment_form', 'ayah_comment_form');
@@ -71,13 +73,13 @@ function ayah_add_playthru() {
     }
     
 	// If enable_register_form is set in the options, attach to the register hooks
-    if( 1 == $ayah_options['enable_register_form']) {
+    if( $ayah_options['enable_register_form'] ) {
         add_action('register_form', 'ayah_register_form');
         add_action('register_post', 'ayah_register_post', 10, 3);
     }
 
     // If enable_lost_password_form is set in the options, attach to the lost password hooks	
-    if( 1 == $ayah_options['enable_lost_password_form']) {
+    if( $ayah_options['enable_lost_password_form'] ) {
         add_action('lostpassword_form', 'ayah_lost_password_form');
         add_action('lostpassword_post', 'ayah_lost_password_post');
     }
@@ -151,7 +153,7 @@ function ayah_register_gf_actions() {
  * @link http://codex.wordpress.org/Function_Reference/add_options_page
  */
 function ayah_add_admin_menu() {
-	add_options_page( "Are You a Human Options", "Are You a Human", 'manage_options', __FILE__, 'ayah_choose_options_page' );
+	add_options_page( "Are You a Human Options", "Are You a Human", 'manage_options', AYAH_PLUGIN_SLUG, 'ayah_choose_options_page' );
 }
 
 /**
@@ -161,7 +163,7 @@ function ayah_add_admin_menu() {
  */
 function ayah_register_plugin_action_links($links) {
 
-	$settings_link = '<a href="options-general.php?page=' . PLUGIN_BASENAME . '">' . __('Settings', 'captcha') . '</a>';
+	$settings_link = '<a href="options-general.php?page='.AYAH_PLUGIN_SLUG.'">' . __('Settings', 'captcha') . '</a>';
 	array_unshift( $links, $settings_link );
 
 	return $links;
@@ -176,7 +178,7 @@ function ayah_register_plugin_meta_links($links, $file) {
 
 	if ($file == PLUGIN_BASENAME) {
 
-		$links[] = '<a href="options-general.php?page=are-you-a-human/areyouahuman.php">' . __('Settings','captcha') . '</a>';
+		$links[] = '<a href="options-general.php?page='.AYAH_PLUGIN_SLUG.'">' . __('Settings','captcha') . '</a>';
 		$links[] = '<a href="http://support.areyouahuman.com" target="_blank">' . __('Support','captcha') . '</a>';
 		$links[] = '<a href="http://www.areyouahuman.com/feedback">' . __('Feedback','captcha') . '</a>';
 	}
@@ -206,4 +208,13 @@ function ajax_json_echo_filter( $items ) {
  */
 function ayah_register_style() {
     wp_register_style('AYAHStylesheet', plugins_url('css/ayah_styles.css', __FILE__));
+}
+
+function ayah_login_styles() {
+	$action = ( isset( $_GET['action'] ) ) ? $_GET['action'] : '';
+	$options = ayah_get_options();
+
+	if ( ( $action == 'lostpassword' && $options['enable_lost_password_form'] ) || ( $action == 'register' && $options['enable_register_form'] ) ) {
+		?><style type="text/css">#login{width: 418px !important;}</style><?php
+	}
 }
