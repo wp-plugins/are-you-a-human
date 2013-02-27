@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Are You A Human
- * @version 1.3.11
+ * @version 1.4
  */
 /*
 Plugin Name: Are You A Human
@@ -20,7 +20,7 @@ Version: 1.3.11
  * Switch to Settings API for settings page
  */
 
-define('AYAH_VERSION', '1.3.11');
+define('AYAH_VERSION', '1.4');
 define('AYAH_WEB_SERVICE_HOST', 'ws.areyouahuman.com');
 define('PLUGIN_BASENAME', plugin_basename(__FILE__));
 define('AYAH_PLUGIN_SLUG', 'are-you-a-human');
@@ -29,8 +29,6 @@ require_once(PLUGIN_DIR_PATH . "includes/ayah.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_form_actions.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_functions.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_pages.php");
-require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/contact-form-7/ayah_cf7.php");
-require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/gravity-forms/ayah_gf.php");
 
 // Register a style sheet that can be loaded later with wp_enqueue_style
 add_action('init', 'ayah_register_style');
@@ -86,12 +84,19 @@ function ayah_add_playthru() {
 	
 	// Registers the AYAH CF7 Actions if plugin is activated
 	if (CF7_DETECTED) {
+		require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/contact-form-7/ayah_cf7.php");
 		ayah_register_cf7_actions();
 	}
 	
 	// Registers the AYAH GF Actions if plugin is activated
 	if (GF_DETECTED) {
+		require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/gravity-forms/ayah_gf.php");
 		ayah_register_gf_actions();
+	}
+
+    if (defined('BP_VERSION')) {
+		require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/buddypress/ayah_buddypress.php");
+    	ayah_register_bp_actions();
 	}
 	
 	// Deactivates the old AYAH CF7 extension if activated
@@ -145,6 +150,17 @@ function ayah_register_gf_actions() {
 	add_filter('gform_field_type_title', 'ayahgf_add_field_title');
 	add_filter('gform_field_validation', 'ayahgf_validate', 10, 4);
 	add_filter("gform_field_input", "ayahgf_field", 10, 5);
+}
+
+/**
+ * Registers the actions for BuddyPress
+ */
+function ayah_register_bp_actions() {
+	$ayah_options = ayah_get_options();
+	if ($ayah_option['enable_register_form']) {
+	add_action('bp_before_registration_submit_buttons', 'ayah_register_form');
+	add_action('bp_signup_validate', 'ayah_buddypress_register');
+	}
 }
 
 /**

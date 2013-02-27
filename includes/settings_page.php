@@ -5,7 +5,6 @@
 			<p>PlayThru now supports Contact Form 7 and Gravity Forms integration. Simply install the plugin and Are You A Human will appear as an option in the form builder!</p>
 		</div>
 	</div>
-	
 	<div class='ayah-box'>
 		<div class='inside'>
 		<h2>Help Stop the Bots! </h2>
@@ -36,7 +35,7 @@
 		<div class='inside'>
 			<h2>PlayThru Settings</h2>
 			<p>Select where you'd like PlayThru to appear on your site.</p>
-			<form action='<?php echo($_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']); ?>' method='POST' id='playthru-options'>
+			<form action="<?php echo admin_url( 'options-general.php?page=are-you-a-human'); ?>" method='POST' id='playthru-options'>
 				<fieldset>
 					<label>Enable PlayThru on:</label>
 					<p><input type='checkbox' name='ayah[enable_register_form]' value='1' <?php echo $chk_enable_register_form; ?> /> Registration Form</p>

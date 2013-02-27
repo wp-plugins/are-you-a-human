@@ -160,9 +160,7 @@ function ayah_check_for_upgrade_or_install() {
 /**
  * Updates the options in the database
  */
-function ayah_set_options($options) {
-    global $wpmu;
-    
+function ayah_set_options($options) {    
 	$options_allowed = array(   'publisher_key',
 	                            'scoring_key',
 	                            'version',
@@ -179,11 +177,7 @@ function ayah_set_options($options) {
 	    }
 	}
 	
-	if ( 1 == $wpmu ) {
-	    update_site_option( 'ayah_options', $new_options );
-	} else {
-	    update_option( 'ayah_options', $new_options );
-	}
+    update_option( 'ayah_options', $new_options );
 	
 	return $new_options;
 }
@@ -196,7 +190,7 @@ function ayah_set_options($options) {
  */
 function ayah_get_options() {
     global $wpmu;
-
+    
     $defaults = array(
         'version' => AYAH_VERSION,
         'publisher_key' => '',
@@ -208,10 +202,13 @@ function ayah_get_options() {
         'submit_id' => ''
     );
 
-    if ( 1 == $wpmu ){
-    	$ayah_options = get_site_option( 'ayah_options', array() ); // blog network
+    if ( 1 == $wpmu && get_site_option( 'ayah_options' ) ){
+    	$ayah_options = get_site_option( 'ayah_options' ); // blog network settings (depricated)
+        update_option( 'ayah_options', $ayah_options ); // Assign it to a wp_<blog_id>_options setting
+        $ayah_options = get_option( 'ayah_options', array() ); // Verify we're getting the right options
+        delete_site_option( 'ayah_options' ); // Remove the old one from site_options
     } else {
-    	$ayah_options = get_option( 'ayah_options', array() ); // single site
+    	$ayah_options = get_option( 'ayah_options', array() ); // We've already deleted the site option, just use this blog's setting
     }
 
     return wp_parse_args( $ayah_options, $defaults );
