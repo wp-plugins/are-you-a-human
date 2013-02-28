@@ -12,8 +12,8 @@ Stop spam and bots with PlayThru, the fun, free CAPTCHA alternative!
 
 == Description ==
 
-Stop spam and bots with PlayThru, the fun, free CAPTCHA alternative! CAPTCHAs infuriate users, increase drop-off, and ruin 
-your site's experience. PlayThru is the game-based alternative that people love. It's completely free, and it could be on your site in 
+Stop spam and bots with PlayThru, the fun, free CAPTCHA alternative! CAPTCHAs infuriate users, increase drop-off, and ruin your
+site's experience. PlayThru is the game-based alternative that people love. It's completely free, and it could be on your site in 
 less than five minutes.
 
 Our games take 5 to 10 seconds to complete, versus the 12 second average of CAPTCHA. PlayThru also increases form submissions by up to 40% over other 
@@ -22,7 +22,7 @@ CAPTCHA options like reCaptcha.
 Our games are built in HTML5, with Flash as an automatic fallback for older browsers. And getting the game "right" isn't enough--our backend 
 algorithms actually track *how* you play each game, so we even stop bots that figure out how to follow the game's instructions.
 
-For more information, please check out [website](http://areyouahuman.com).  
+For more information, please check out our [website](http://areyouahuman.com).  
 
 PlayThru works with Contact Form 7 and Gravity forms! This plugin is automatically integrated with 
 Contact Form 7 or Gravity Forms; all you need to do is add the Are You a Human field from within the form builder. 
