@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Are You A Human
- * @version 1.4
+ * @version 1.4.1
  */
 /*
 Plugin Name: Are You A Human
@@ -9,7 +9,7 @@ Plugin URI:  http://wordpress.org/extend/plugins/are-you-a-human/
 Description: The Are You a Human PlayThru plugin replaces obnoxious CAPTCHAs with fun, simple games.  Fight spam with fun
 Author: Are You A Human
 Author URI: http://www.areyouahuman.com/
-Version: 1.4.0
+Version: 1.4.1
 */
 
 /* TODO:
@@ -20,7 +20,7 @@ Version: 1.4.0
  * Switch to Settings API for settings page
  */
 
-define('AYAH_VERSION', '1.4.0');
+define('AYAH_VERSION', '1.4.1');
 define('AYAH_WEB_SERVICE_HOST', 'ws.areyouahuman.com');
 define('PLUGIN_BASENAME', plugin_basename(__FILE__));
 define('AYAH_PLUGIN_SLUG', 'are-you-a-human');
@@ -157,9 +157,10 @@ function ayah_register_gf_actions() {
  */
 function ayah_register_bp_actions() {
 	$ayah_options = ayah_get_options();
-	if ($ayah_option['enable_register_form']) {
-	add_action('bp_before_registration_submit_buttons', 'ayah_register_form');
-	add_action('bp_signup_validate', 'ayah_buddypress_register');
+
+	if ($ayah_options['enable_register_form']) {
+		add_action('bp_before_registration_submit_buttons', 'ayah_register_form');
+		add_action('bp_signup_validate', 'ayah_buddypress_register');
 	}
 }
 

@@ -4,7 +4,7 @@ Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, cap
 Donate Link: http://portal.areyouahuman.com
 Requires at least: 2.8
 Tested up to: 3.5.1
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,8 @@ If you have other questions, please let us know!  We love feedback, and it can b
 1. Lightbox Version
 
 == Changelog ==
+= 1.4.1 =
+* Fixed an issue causing the registration page of BuddyPress to not show PlayThru
 
 = 1.4.0 =
 * Added support for BuddyPress.
