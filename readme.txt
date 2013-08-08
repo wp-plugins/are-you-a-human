@@ -1,39 +1,31 @@
-=== Are You a Human - Free CAPTCHA Alternative ===
+=== Are You a Human - Fun, Free CAPTCHA Game ===
 Contributors: areyouahuman
-Tags: anti-spam, spam, bot, comments, human, robot, areyouahuman, recaptcha, captcha, verification, security, bots, spambots, human, Contact form 7, security, login, registration, capcha, catcha, ipad, iphone, android, html5, catcha, comment, cf7, gravity forms, buddypress 
-Donate Link: http://portal.areyouahuman.com
+Tags: accessible CAPTCHA, anti-bot, anti-bot CAPTCHA, anti-spam, anti-spam CAPTCHA, android, android CAPTCHA, antispam, audio CAPTCHA, bot, bots, buddypress, buddypress CAPTCHA, capcha, captcha, CAPTCHA plugin, CAPTCHA Security, captha, capture, catcha, Canvas CAPTCHA, cf7, cf7 CAPTCHA, comment, comment anti-spam, comment CAPTCHA, comment capture, comment defense, comment protection CAPTCHA, comment spam, comments, contact form 7, contact form 7 CAPTCHA, contact form CAPTCHA, contact CAPTCHA, CAPPCHA, easy captcha, enjoyable CAPTCHA, entertaining CAPTCHA, fast CAPTCHA, flash CAPTCHA, form captcha, form capture, fun CAPTCHA, game CAPTCHA, Gravity CAPTCHA, Gravity Forms CAPTCHA, html CAPTHCHA, html5 CAPTCHA, image captcha, interactive CAPTCHA, iphone CAPTCHA, ipad CAPTCHA, ipad login, lost password, lost password CAPTCHA, mobile CAPTCHA, picture CAPTCHA, recaptcha, registration, registration captcha, secure CAPTCHA, security, spam, spam proof CAPTCHA, text captcha, wordpress captcha
+Donate Link: http://areyouahuman.com/donate
 Requires at least: 2.8
 Tested up to: 3.5.1
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Stop spam and bots with PlayThru, the fun, free CAPTCHA alternative!
+Stop spam with a fun, free game instead of that awful distorted text! The Are You a Human plugin is completely free and works on every desktop and mobile device. Compatible with BuddyPress, Gravity Forms, and Contact Form 7.
 
 == Description ==
 
-Stop spam and bots with PlayThru, the fun, free CAPTCHA alternative! CAPTCHAs infuriate users, increase drop-off, and ruin your
-site's experience. PlayThru is the game-based alternative that people love. It's completely free, and it could be on your site in 
-less than five minutes.
+Stop spam and bots with PlayThru, the fun, free CAPTCHA alternative! CAPTCHAs infuriate users, increase drop-off, and ruin your site's user experience. PlayThru is the game-based alternative that people love. It's easy to install and completely free.
 
-Our games take 5 to 10 seconds to complete, versus the 12 second average of CAPTCHA. PlayThru also increases form submissions by up to 40% over other 
-CAPTCHA options like reCaptcha. 
+Check out a [demo](http://areyouahuman.com/demo/) on our website.
 
-Our games are built in HTML5, with Flash as an automatic fallback for older browsers. And getting the game "right" isn't enough--our backend 
-algorithms actually track *how* you play each game, so we even stop bots that figure out how to follow the game's instructions.
+This plugin works effortlessly on comment, registration, and lost password forms, and is compatible with BuddyPress, Gravity Forms, and Contact Form 7.
 
-For more information, please check out our [website](http://areyouahuman.com).  
-
-PlayThru works with Contact Form 7 and Gravity forms! This plugin is automatically integrated with 
-Contact Form 7 or Gravity Forms; all you need to do is add the Are You a Human field from within the form builder. 
-
-Need help, or want to give feedback? We're there to talk on our [support forum](http://support.areyouahuman.com/). 
-We also love to get shoutouts on [Twitter](http://www.twitter.com/areyouahuman) and [Facebook page](http://www.facebook.com/areyouahuman). And if you 
-like this plugin, please help us out by leaving a good rating and telling your friends.
+Learn more, give feedback, and get in touch with us at our [website](http://areyouahuman.com).
 
 Thanks for joining us in the fight against CAPTCHA! Together, we can make the world a better place, one web site at a time.
 
 == Installation ==
+
+= Video Guide =
+[youtube http://www.youtube.com/watch?v=YpKZ0XXeURg]
 
 = Install the Plugin =
 
@@ -46,26 +38,29 @@ Thanks for joining us in the fight against CAPTCHA! Together, we can make the wo
 = Configure the Plugin =
 
 1. Navigate to Settings -> Are You a Human
-1. If you have not already registered for an account, click the registration button and follow the instructions.
-1. After you've registered for an account you will be assigned a Publisher and Scoring Key. Copy and paste those keys into the Are You a Human settings in your Wordpress admin.
-1. Select which forms you would like PlayThru to be active on and when you're done, click the Save Changes button.
-1. You're ready to fight bots with fun!
+1. If you have not already registered for an account, [register on our site](http://portal.areyouahuman.com/signup/basic).
+1. After you've registered for an account, you'll be assigned a Publisher and Scoring Key. Copy and paste those keys into the appropriate fields in the Are You a Human settings page within WordPress.
+1. Select which parts of your site you'd like PlayThru to appear on. You can also choose to hide PlayThru from registered users of your site.
+1. When you're done, make sure to click the "Save Changes" button. Then you're all set!
 
 == Frequently Asked Questions ==
 
-For a full list of frequently asked questions, please see our [FAQ page](http://areyouahuman.com/faqs)
+For a full list of frequently asked questions, please see our [FAQ page](http://areyouahuman.com/faq)
 
-If you have other questions, please let us know!  We love feedback, and it can be left at our [support forum](http://support.areyouahuman.com).
+If you have other questions, or need any help, please reach out to us at our [support forum](http://support.areyouahuman.com).
 
 == Screenshots ==
 
-1. Comment Form
-1. Registration Form
-1. Game Play
-1. Admin Page
-1. Lightbox Version
+1. Comment form
+1. Registration form
+1. Gameplay
+1. Admin page
+1. Lightbox mode
 
 == Changelog ==
+= 1.4.2 =
+* Updated images.
+
 = 1.4.1 =
 * Fixed an issue causing the registration page of BuddyPress to not show PlayThru
 

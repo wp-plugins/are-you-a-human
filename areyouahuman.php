@@ -9,7 +9,7 @@ Plugin URI:  http://wordpress.org/extend/plugins/are-you-a-human/
 Description: The Are You a Human PlayThru plugin replaces obnoxious CAPTCHAs with fun, simple games.  Fight spam with fun
 Author: Are You A Human
 Author URI: http://www.areyouahuman.com/
-Version: 1.4.1
+Version: 1.4.2
 */
 
 /* TODO:
