@@ -8,7 +8,7 @@ Stable tag: 1.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Stop spam with a fun, free game instead of that awful distorted text! The Are You a Human plugin is completely free and works on every desktop and mobile device. Compatible with BuddyPress, Gravity Forms, and Contact Form 7.
+Stop spam with a fun, free game instead of that awful distorted text! Free plugin compatible with BuddyPress, Gravity Forms, and Contact Form 7.
 
 == Description ==
 
