@@ -4,7 +4,7 @@ Tags: accessible CAPTCHA, anti-bot, anti-bot CAPTCHA, anti-spam, anti-spam CAPTC
 Donate Link: http://areyouahuman.com/donate
 Requires at least: 2.8
 Tested up to: 3.5.1
-Stable tag: 1.4.2
+Stable tag: 1.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
