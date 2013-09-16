@@ -1,26 +1,28 @@
-=== Are You a Human - Fun, Free CAPTCHA Game ===
+=== Fun, Free CAPTCHA Game - Are You a Human ===
 Contributors: areyouahuman
-Tags: accessible CAPTCHA, anti-bot, anti-bot CAPTCHA, anti-spam, anti-spam CAPTCHA, android, android CAPTCHA, antispam, audio CAPTCHA, bot, bots, buddypress, buddypress CAPTCHA, capcha, captcha, CAPTCHA plugin, CAPTCHA Security, captha, capture, catcha, Canvas CAPTCHA, cf7, cf7 CAPTCHA, comment, comment anti-spam, comment CAPTCHA, comment capture, comment defense, comment protection CAPTCHA, comment spam, comments, contact form 7, contact form 7 CAPTCHA, contact form CAPTCHA, contact CAPTCHA, CAPPCHA, easy captcha, enjoyable CAPTCHA, entertaining CAPTCHA, fast CAPTCHA, flash CAPTCHA, form captcha, form capture, fun CAPTCHA, game CAPTCHA, Gravity CAPTCHA, Gravity Forms CAPTCHA, html CAPTHCHA, html5 CAPTCHA, image captcha, interactive CAPTCHA, iphone CAPTCHA, ipad CAPTCHA, ipad login, lost password, lost password CAPTCHA, mobile CAPTCHA, picture CAPTCHA, recaptcha, registration, registration captcha, secure CAPTCHA, security, spam, spam proof CAPTCHA, text captcha, wordpress captcha
+Tags: accessible CAPTCHA, anti-bot, anti-bot CAPTCHA, anti-spam, anti-spam CAPTCHA, Android, Android CAPTCHA, antispam, audio CAPTCHA, bot, bots, buddypress, buddypress CAPTCHA, capcha, CAPTCHA, CAPTCHA plugin, CAPTCHA Security, captha, capture, catcha, Canvas CAPTCHA, CF7, CF7 CAPTCHA, comment, comment anti-spam, comment CAPTCHA, comment capture, comment defense, comment protection CAPTCHA, comment spam, comments, Contact Form 7, Contact Form 7 CAPTCHA, contact form CAPTCHA, contact CAPTCHA, CAPPCHA, easy CAPTCHA, enjoyable CAPTCHA, entertaining CAPTCHA, fast CAPTCHA, flash CAPTCHA, form CAPTCHA, form capture, fun CAPTCHA, game CAPTCHA, Gravity CAPTCHA, Gravity Forms CAPTCHA, html CAPTHCHA, HTML5 CAPTCHA, image CAPTCHA, interactive CAPTCHA, iPhone CAPTCHA, iPad CAPTCHA, lost password, lost password CAPTCHA, mobile CAPTCHA, picture CAPTCHA, reCAPTCHA, registration, registration CAPTCHA, secure CAPTCHA, security, spam, spam proof CAPTCHA, text CAPTCHA, WordPress CAPTCHA
 Donate Link: http://areyouahuman.com/donate
 Requires at least: 2.8
-Tested up to: 3.5.1
-Stable tag: 1.4.4
+Tested up to: 3.6.1
+Stable tag: 1.4.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Stop spam with a fun, free game instead of that awful distorted text! Free plugin compatible with BuddyPress, Gravity Forms, and Contact Form 7.
+Stop spam with a fun, free game instead of that awful distorted text! Works great on mobile. Free plugin compatible with BuddyPress, Gravity Forms, and Contact Form 7.
 
 == Description ==
 
 Stop spam and bots with PlayThru, the fun, free CAPTCHA alternative! CAPTCHAs infuriate users, increase drop-off, and ruin your site's user experience. PlayThru is the game-based alternative that people love. It's easy to install and completely free.
 
-Check out a [demo](http://areyouahuman.com/demo/) on our website.
+[Learn more &rarr;](http://areyouahuman.com/about-playthru/)
+
+[Check out a demo &rarr;](http://areyouahuman.com/demo/)
 
 This plugin works effortlessly on comment, registration, and lost password forms, and is compatible with BuddyPress, Gravity Forms, and Contact Form 7.
 
 Learn more, give feedback, and get in touch with us at our [website](http://areyouahuman.com).
 
-Thanks for joining us in the fight against CAPTCHA! Together, we can make the world a better place, one web site at a time.
+Thanks for joining us in the fight against CAPTCHA! Together, we can make the world a better place, one website at a time.
 
 == Installation ==
 
