@@ -1,6 +1,6 @@
 === Fun, Free CAPTCHA Game - Are You a Human ===
 Contributors: areyouahuman
-Tags: accessible CAPTCHA, anti-bot, anti-bot CAPTCHA, anti-spam, anti-spam CAPTCHA, Android, Android CAPTCHA, antispam, audio CAPTCHA, bot, bots, buddypress, buddypress CAPTCHA, capcha, CAPTCHA, CAPTCHA plugin, CAPTCHA Security, captha, capture, catcha, Canvas CAPTCHA, CF7, CF7 CAPTCHA, comment, comment anti-spam, comment CAPTCHA, comment capture, comment defense, comment protection CAPTCHA, comment spam, comments, Contact Form 7, Contact Form 7 CAPTCHA, contact form CAPTCHA, contact CAPTCHA, CAPPCHA, easy CAPTCHA, enjoyable CAPTCHA, entertaining CAPTCHA, fast CAPTCHA, flash CAPTCHA, form CAPTCHA, form capture, fun CAPTCHA, game CAPTCHA, Gravity CAPTCHA, Gravity Forms CAPTCHA, html CAPTHCHA, HTML5 CAPTCHA, image CAPTCHA, interactive CAPTCHA, iPhone CAPTCHA, iPad CAPTCHA, lost password, lost password CAPTCHA, mobile CAPTCHA, picture CAPTCHA, reCAPTCHA, registration, registration CAPTCHA, secure CAPTCHA, security, spam, spam proof CAPTCHA, text CAPTCHA, WordPress CAPTCHA
+Tags: CAPTCHA, Android CAPTCHA, audio CAPTCHA, buddypress, CAPTCHA, comment spam, Contact Form 7, Gravity Forms CAPTCHA, HTML5 CAPTCHA, iPhone CAPTCHA, spam
 Donate Link: http://areyouahuman.com/donate
 Requires at least: 2.8
 Tested up to: 3.6.1
