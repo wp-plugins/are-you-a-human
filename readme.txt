@@ -1,10 +1,10 @@
 === Fun, Free CAPTCHA Game - Are You a Human ===
 Contributors: areyouahuman
-Tags: CAPTCHA, Android CAPTCHA, audio CAPTCHA, buddypress, CAPTCHA, comment spam, Contact Form 7, Gravity Forms CAPTCHA, HTML5 CAPTCHA, iPhone CAPTCHA, spam
+Tags: CAPTCHA, audio CAPTCHA, buddypress, comment spam, Contact Form 7, game CAPTCHA, Gravity Forms, HTML5 CAPTCHA, mobile CAPTCHA, spam
 Donate Link: http://areyouahuman.com/donate
 Requires at least: 2.8
 Tested up to: 3.6.1
-Stable tag: 1.4.6
+Stable tag: 1.4.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
