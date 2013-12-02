@@ -1,6 +1,6 @@
 <?php
 
-$AYAH_ERROR_MESSAGE = 'We could not verify that you are a human. Press your browser\'s back button and try again.';
+$AYAH_ERROR_MESSAGE = 'Sorry, but we could not verify that you are a human. Please press your browser\'s back button and try again.';
 
 /**
  * Action attached to comment_form_after_fields and comment_form_logged_in_after hooks
