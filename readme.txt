@@ -1,14 +1,14 @@
-=== Are You a Human: PlayThru - The Fun Spam Blocker ===
+=== Are You a Human - The Fun Spam Blocker ===
 Contributors: areyouahuman
 Tags: CAPTCHA, antispam, comment, registration, login, mobile, buddypress, contact form 7, game, security
 Donate Link: http://areyouahuman.com/donate
 Requires at least: 2.8
 Tested up to: 3.7.1
-Stable tag: 1.4.9
+Stable tag: 1.4.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Stop spam with a fun game instead of distorted text! PlayThru works effortlessly on blog comments, registration screens, lost password forms, and more.
+Stop spam with a fun game instead of distorted text! PlayThru works effortlessly on blog comments, registration pages, lost password forms, and more.
 
 == Description ==
 
@@ -79,7 +79,7 @@ If you have other questions, or need any help, please reach out to us at our [su
 1. Lightbox mode
 
 == Changelog ==
-= 1.4.9 =
+= 1.4.10 =
 * Updated plugin description.
 
 = 1.4.2 =
