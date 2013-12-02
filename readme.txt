@@ -1,28 +1,47 @@
-=== Fun, Free CAPTCHA Game - Are You a Human ===
+=== Are You a Human - The Fun Spam Blocker ===
 Contributors: areyouahuman
-Tags: CAPTCHA, audio CAPTCHA, buddypress, comment spam, Contact Form 7, game CAPTCHA, Gravity Forms, HTML5 CAPTCHA, mobile CAPTCHA, spam
+Tags: CAPTCHA, antispam, comment, registration, login, mobile, buddypress, contact form 7, game, security
 Donate Link: http://areyouahuman.com/donate
 Requires at least: 2.8
-Tested up to: 3.6.1
-Stable tag: 1.4.7
+Tested up to: 3.7.1
+Stable tag: 1.4.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Stop spam with a fun game instead of distorted text! Works great on mobile. Free plugin compatible with BuddyPress, Gravity Forms, and Contact Form 7.
+Stop spam with a fun game instead of distorted text! PlayThru works effortlessly on blog comments, registration pages, lost password forms, and more.
 
 == Description ==
 
-Stop spam and bots with PlayThru, the fun, free CAPTCHA alternative! CAPTCHAs infuriate users, increase drop-off, and ruin your site's user experience. PlayThru is the game-based alternative that people love. It's easy to install and completely free.
+Stop spam and bots with PlayThru, the fun, free CAPTCHA alternative! CAPTCHAs infuriate users, increase drop-off, and ruin your site's user experience. PlayThru is the simple game-based CAPTCHA replacement that people love. It's easy to install and completely free.
 
-[Learn more &rarr;](http://areyouahuman.com/about-playthru/)
+This plugin works effortlessly on comment, registration, and lost password forms, and is compatible with BuddyPress, Gravity Forms, and Contact Form 7. CAPTCHA-related dropoff is five times higher on mobile than on desktop, and the PlayThru spam blocker is optimized for touch, so it works beautifully on mobile devices.
 
 [Check out a demo &rarr;](http://areyouahuman.com/demo/)
 
-This plugin works effortlessly on comment, registration, and lost password forms, and is compatible with BuddyPress, Gravity Forms, and Contact Form 7.
+&nbsp;
 
-Learn more, give feedback, and get in touch with us at our [website](http://areyouahuman.com).
+Case Study: Spam Annihilated at VoteSane
+
+VoteSane (www.votesane.com) experimented with a variety of CAPTCHA options, including logic CAPTCHAs ("What color is a banana?"), math CAPTCHAs ("What's 6 + 8?"), and traditional text-based CAPTCHAs to address their spam problem. But nothing helped. No matter what they did, they were besieged with twelve to fifteen thousand spam comments a month, all of which had to be cleared out manually.
+
+Then they discovered PlayThru. In the first month after switching to PlayThru, VoteSane didn't receive a single spam comment. That’s right: PlayThru cut their monthly comment spam from the tens of thousands down to zero. Plus, PlayThru completely eliminated the complaints about poor user experience that VoteSane routinely received with CAPTCHA.
+
+[Read more &rarr;](http://areyouahuman.com/case_studies/spam-annihilated-with-playthru/)
+
+&nbsp;
+
+Learn more, give feedback, and get in touch with us at [our website](http://areyouahuman.com).
+
+Or check us out in the media:
+
+&bull; [PC Magazine](http://securitywatch.pcmag.com/none/305118-an-end-to-captcha-agony)
+
+&bull; [VentureBeat](http://venturebeat.com/2012/09/14/are-you-a-human-captcha/)
+
+&bull; [Forbes](http://www.forbes.com/sites/techonomy/2012/09/10/detroit-startup-asks-and-names-itself-are-you-a-human/)
 
 Thanks for joining us in the fight against CAPTCHA! Together, we can make the world a better place, one website at a time.
+
 
 == Installation ==
 
@@ -60,11 +79,14 @@ If you have other questions, or need any help, please reach out to us at our [su
 1. Lightbox mode
 
 == Changelog ==
+= 1.4.10 =
+* Updated plugin description.
+
 = 1.4.2 =
 * Updated images.
 
 = 1.4.1 =
-* Fixed an issue causing the registration page of BuddyPress to not show PlayThru
+* Fixed an issue causing the registration page of BuddyPress to not show PlayThru.
 
 = 1.4.0 =
 * Added support for BuddyPress.
