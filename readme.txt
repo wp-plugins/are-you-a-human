@@ -3,12 +3,12 @@ Contributors: areyouahuman
 Tags: CAPTCHA, antispam, comment, registration, login, mobile, buddypress, contact form 7, game, security
 Donate Link: http://areyouahuman.com/donate
 Requires at least: 2.8
-Tested up to: 3.6.1
-Stable tag: 1.4.8
+Tested up to: 3.7.1
+Stable tag: 1.4.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Stop spam with a fun game instead of distorted text! PlayThru works effortlessly on blog comments, registration screens, lost password forms, and much more.
+Stop spam with a fun game instead of distorted text! PlayThru works effortlessly on blog comments, registration screens, lost password forms, and more.
 
 == Description ==
 
@@ -18,6 +18,7 @@ This plugin works effortlessly on comment, registration, and lost password forms
 
 [Check out a demo &rarr;](http://areyouahuman.com/demo/)
 
+&nbsp;
 
 Case Study: Spam Annihilated at VoteSane
 
@@ -27,10 +28,16 @@ Then they discovered PlayThru. In the first month after switching to PlayThru, V
 
 [Read more &rarr;](http://areyouahuman.com/case_studies/spam-annihilated-with-playthru/)
 
+&nbsp;
+
 Learn more, give feedback, and get in touch with us at [our website](http://areyouahuman.com).
+
 Or check us out in the media:
+
 &bull; [PC Magazine](http://securitywatch.pcmag.com/none/305118-an-end-to-captcha-agony)
+
 &bull; [VentureBeat](http://venturebeat.com/2012/09/14/are-you-a-human-captcha/)
+
 &bull; [Forbes](http://www.forbes.com/sites/techonomy/2012/09/10/detroit-startup-asks-and-names-itself-are-you-a-human/)
 
 Thanks for joining us in the fight against CAPTCHA! Together, we can make the world a better place, one website at a time.
@@ -72,7 +79,7 @@ If you have other questions, or need any help, please reach out to us at our [su
 1. Lightbox mode
 
 == Changelog ==
-= 1.4.8 =
+= 1.4.9 =
 * Updated plugin description.
 
 = 1.4.2 =
