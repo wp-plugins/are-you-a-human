@@ -4,7 +4,7 @@ Tags: CAPTCHA, antispam, comment, registration, login, mobile, buddypress, conta
 Donate Link: http://areyouahuman.com/donate
 Requires at least: 2.8
 Tested up to: 3.7.1
-Stable tag: 1.4.10
+Stable tag: 1.4.20
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
