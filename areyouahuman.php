@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Are You a Human
- * @version 1.4.10
+ * @version 1.4.2
  */
 /*
 Plugin Name: Are You a Human
@@ -9,7 +9,7 @@ Plugin URI:  http://wordpress.org/extend/plugins/are-you-a-human/
 Description: The Are You a Human PlayThru plugin replaces obnoxious CAPTCHAs with fun, simple games. Fight spam with fun!
 Author: Are You a Human
 Author URI: http://www.areyouahuman.com/
-Version: 1.4.10
+Version: 1.4.20
 */
 
 /* TO DO:
@@ -20,7 +20,7 @@ Version: 1.4.10
  * Switch to Settings API for settings page
  */
 
-define('AYAH_VERSION', '1.4.1');
+define('AYAH_VERSION', '1.4.2');
 define('AYAH_WEB_SERVICE_HOST', 'ws.areyouahuman.com');
 define('PLUGIN_BASENAME', plugin_basename(__FILE__));
 define('AYAH_PLUGIN_SLUG', 'are-you-a-human');

@@ -48,7 +48,7 @@ function ayahcf7_tag_generator() {
 /**
  * Displays the HTML of the tag pane in the CF7 Plugin
  */
-function ayahcf7_tag_pane(&$contact_form) {
+function ayahcf7_tag_pane($contact_form) {
 	?>
 	<div id="ayahcf7-tag-pane" class="hidden">
 		<form action="">
