@@ -1,7 +1,9 @@
 <?php
-
+// The error message when it is displayed on its own page
 $AYAH_ERROR_MESSAGE = 'Sorry, but we could not verify that you are a human. Please press your browser\'s back button and try again.';
 
+// The error message when displayed on a form after a failed PlayThru
+$AYAH_ERROR_ON_FORMS = 'Sorry, but we could not verify that you are a human. Please complete the PlayThru again';
 /**
  * Action attached to comment_form_after_fields and comment_form_logged_in_after hooks
  * Prints a div that allows us to move the PlayThru above the comment form if necessary
@@ -148,17 +150,59 @@ function ayah_register_form() {
 
 /**
  * Attached to register_post. Validates PlayThru result.
+ * This function receives three parameters; we only need the WP_Error $errors variable, which we pass to a common
+ * function responsible for checking the score and appending an error.
+ *
+ * @param string    $foo    (unused)
+ * @param string    $bar    (unused)
+ * @param WP_Error  $errors The WP_Error object to which we will append an error if the PlayThru did not succeed.
  */
-function ayah_register_post($login, $email, $errors) {
-   
+function ayah_register_post($foo, $bar, $errors) {
+    ayah_score_playthru_and_append_error($errors);
+}
+
+/**
+ * Attached to wpmu_validate_user_signup (WP multi-site only). Validates PlayThru result.
+ * Receives one parameter which looks like this:
+ *    $result = array('user_name' => $user_name, 'orig_username' => $orig_username, 'user_email' => $user_email,
+ *                    'errors' => $errors);
+ * We only care about the WP_Error object $errors, so we pull it out and use a common function to perform the score
+ * check and append an error if necessary.
+ *
+ * @param array $result
+ *
+ * @return array The $result array.
+ */
+function ayah_wpmu_validate_user_signup($result) {
+    // Skip this for the 'blog' step
+    global $stage;
+    if($stage == "validate-blog-signup") return $result;
+
+    /** @var WP_Error $errors */
+    $errors = $result['errors'];
+    ayah_score_playthru_and_append_error($errors, 'generic');
+
+    return $result;
+}
+
+    /**
+     * This function checks the PlayThru score and, if unsuccessful, appends an error message to the list of errors.
+     *
+     * @param WP_Error $errors
+     * @param string   $error_code (optional) error code to assign
+     */
+function ayah_score_playthru_and_append_error($errors, $error_code = 'playthru_wrong'){
+
+    // Load the Are You A Human library
     $ayah = ayah_load_library();
-    
-    if ( $ayah->scoreResult() ) {
+
+    // Check the score result
+    if ($ayah->scoreResult()) {
         return;
     } else {
-        $errors->add('playthru_wrong', '<strong>'.__('ERROR', 'ayah').'</strong>: '.__('Please complete the PlayThru again', 'ayah'));
+        global $AYAH_ERROR_ON_FORMS;
+        $errors->add($error_code, '<strong>' . __('ERROR', 'ayah') . '</strong>: ' . __($AYAH_ERROR_ON_FORMS, 'ayah'));
     }
-    return $errors;
 }
 
 /**

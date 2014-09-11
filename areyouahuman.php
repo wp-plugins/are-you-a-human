@@ -9,7 +9,7 @@ Plugin URI:  http://wordpress.org/extend/plugins/are-you-a-human/
 Description: The Are You a Human PlayThru plugin replaces obnoxious CAPTCHAs with fun, simple games. Fight spam with fun!
 Author: Are You a Human
 Author URI: http://www.areyouahuman.com/
-Version: 1.4.20
+Version: 1.4.30
 */
 
 /* TO DO:
@@ -20,7 +20,7 @@ Version: 1.4.20
  * Switch to Settings API for settings page
  */
 
-define('AYAH_VERSION', '1.4.2');
+define('AYAH_VERSION', '1.4.3');
 define('AYAH_WEB_SERVICE_HOST', 'ws.areyouahuman.com');
 define('PLUGIN_BASENAME', plugin_basename(__FILE__));
 define('AYAH_PLUGIN_SLUG', 'are-you-a-human');
@@ -29,6 +29,9 @@ require_once(PLUGIN_DIR_PATH . "includes/ayah.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_form_actions.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_functions.php");
 require_once(PLUGIN_DIR_PATH . "includes/ayah_pages.php");
+
+// Detect other plugins
+ayah_check_for_other_plugins();
 
 // Register a style sheet that can be loaded later with wp_enqueue_style
 add_action('init', 'ayah_register_style');
@@ -49,7 +52,17 @@ add_action('init', 'ayah_add_playthru');
 // Reload PlayThru on contact form 7 send
 add_filter( 'wpcf7_ajax_json_echo', 'ajax_json_echo_filter');
 
-/**
+// If the WP-Members Actions if plugin is activated
+if (WPM_DETECTED) {
+    require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/wp-members/ayah_wpm.php");
+
+    // Disable CAPTCHA setting in WP-Members
+    // This filter needs to be registered here because it needs to happen early in the execution.
+    // All the other WP-Members specific filters are added later on, once WP is initialized
+    add_filter('wpmem_settings', 'ayahwpm_settings', null, 1);
+}
+
+    /**
  * Adds the playthru to the forms chosen in the options menu
  * This is achieved by attaching to the appropriate hooks
  * 
@@ -57,7 +70,6 @@ add_filter( 'wpcf7_ajax_json_echo', 'ajax_json_echo_filter');
  * @link http://codex.wordpress.org/Function_Reference/add_action
  */
 function ayah_add_playthru() {
-	ayah_check_for_other_plugins();
 	ayah_add_admin_notice_action();
 
     $ayah_options = ayah_get_options();
@@ -72,8 +84,16 @@ function ayah_add_playthru() {
     
 	// If enable_register_form is set in the options, attach to the register hooks
     if( $ayah_options['enable_register_form'] ) {
-        add_action('register_form', 'ayah_register_form');
-        add_action('register_post', 'ayah_register_post', 10, 3);
+        switch (is_multisite()) {
+            case true:
+                add_action('signup_extra_fields', 'ayah_register_form');
+                add_action('wpmu_validate_user_signup', 'ayah_wpmu_validate_user_signup', 10, 3);
+                break;
+            default:
+                add_action('register_form', 'ayah_register_form');
+                add_action('register_post', 'ayah_register_post', 10, 3);
+                break;
+        }
     }
 
     // If enable_lost_password_form is set in the options, attach to the lost password hooks	
@@ -93,6 +113,12 @@ function ayah_add_playthru() {
 		require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/gravity-forms/ayah_gf.php");
 		ayah_register_gf_actions();
 	}
+
+    // Registers the AYAH WP-Members Actions if plugin is activated
+    if (WPM_DETECTED) {
+        require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/wp-members/ayah_wpm.php");
+        ayah_register_wpm_actions();
+    }
 
     if (defined('BP_VERSION')) {
 		require_once(PLUGIN_DIR_PATH . "includes/plugin-integration/buddypress/ayah_buddypress.php");
@@ -126,6 +152,7 @@ function ayah_check_for_other_plugins() {
 	define('CF7_DETECTED', is_plugin_active('contact-form-7/wp-contact-form-7.php'));
 	define('AYAHCF7_DETECTED', is_plugin_active('are-you-a-human-cf7-extension/are-you-a-human-cf7-extension.php'));
 	define('GF_DETECTED', is_plugin_active('gravityforms/gravityforms.php'));
+    define('WPM_DETECTED', is_plugin_active('wp-members/wp-members.php'));
 }
 
 /**
@@ -164,6 +191,32 @@ function ayah_register_bp_actions() {
 	}
 }
 
+/**
+ * Registers the actions for WP-Members
+ */
+function ayah_register_wpm_actions() {
+    $ayah_options = ayah_get_options();
+
+    // Remove CAPTCHA options from the WP-Members settings screen
+    add_action( 'wpmem_admin_do_tab', 'ayahwpm_settings_page_pre', -100, 2 );
+    add_action( 'wpmem_admin_do_tab', 'ayahwpm_settings_page_post', 100, 2 );
+
+    // If we should display the PlayThru on registration forms...
+    if ($ayah_options['enable_register_form']) {
+        // Display PlayThru code on registration form
+        add_filter('wpmem_register_hidden_fields', 'ayahwpm_playthru', null, 2);
+        // Validate PlayThru result before processing registration
+        add_filter('wpmem_pre_validate_form', 'ayahwpm_validate', null, 1);
+    }
+
+    // If we should display the PlayThru on reset password forms...
+    if ($ayah_options['enable_lost_password_form']) {
+        // Display PlayThru code on password reset form
+        add_filter('wpmem_login_hidden_fields', 'ayahwpm_playthru', null, 2);
+        // Validate PlayThru result before processing password reset request
+        add_filter('wpmem_pwdreset_args', 'ayahwpm_validate', null, 1);
+    }
+}
 /**
  * Adds a AYAH Options page link to the Settings admin menu
  * 
