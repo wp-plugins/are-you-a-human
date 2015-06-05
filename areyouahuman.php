@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Are You a Human
- * @version 1.4.2
+ * @version 1.4.30
  */
 /*
 Plugin Name: Are You a Human
