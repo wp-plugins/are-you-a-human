@@ -4,7 +4,7 @@ Tags: CAPTCHA, antispam, comment, registration, login, mobile, buddypress, conta
 Donate Link: http://areyouahuman.com/donate
 Requires at least: 2.8
 Tested up to: 3.7.1
-Stable tag: 1.4.20
+Stable tag: 1.4.30
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,9 @@ If you have other questions, or need any help, please reach out to us at our [su
 1. Lightbox mode
 
 == Changelog ==
+= 1.4.30 =
+* WP Multisite support
+
 = 1.4.10 =
 * Updated plugin description.
 
