@@ -50,7 +50,7 @@ function ayahcf7_tag_generator() {
  */
 function ayahcf7_tag_pane($contact_form) {
 	?>
-	<div id="ayahcf7-tag-pane" class="hidden">
+	<div id="ayahcf7-tag-pane">
 		<form action="">
 			<table>
 			<tr>
