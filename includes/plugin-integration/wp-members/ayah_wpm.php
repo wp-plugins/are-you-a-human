@@ -48,7 +48,7 @@ function ayahwpm_playthru($hidden, $action = null)
      *
      * @return array Form fields, post-processed.
      */
-    function ayahwpm_validate($fields = [])
+    function ayahwpm_validate($fields = array())
     {
         // Initialize AYAH library
         $ayah = ayah_load_library();
